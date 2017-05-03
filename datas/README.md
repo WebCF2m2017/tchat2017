@@ -1,5 +1,5 @@
 
-<<<<<<< HEAD
+
 # création de la structure de la DB
 nous allons crées un DB mysqli dans workbench
 ## exercice, créez chacun un DB dans workbench(nom de fichier : tchat(prenom).mwb)
