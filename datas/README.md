@@ -6,3 +6,5 @@ Vous devez penser à créer 2 ou 3 tables:
 - util => utilisateurs (id, login, mdp, mail,....)
 
 - messages => les messages (id, idutil, titre, texte, ladate, ....)
+ 
+ merci Yassine
