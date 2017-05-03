@@ -9,3 +9,6 @@ Vous devez penser à créer 2 ou 3 tables:
 - messages => les messages (id, idutil, titre, texte, ladate, ....)
  
 coucou c'est houssain
+
+- conflit réglé
+
