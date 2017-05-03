@@ -5,4 +5,5 @@ Vous devez penser à créer 3 tables
 
 - util => utilisateurs (id, login, mdp, mail,...)
 
--messages => les messages (id, idutil, titre, texte, ladate, .....)
+- messages => les messages (id, idutil, titre, texte, ladate, .....)
+
