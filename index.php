@@ -8,10 +8,15 @@ session_start();
 
 // importation de config.php
 require_once 'config.php';
+require_once 'connect.php';
 
 // variables provisoires
 $login = "admin";
 $pass = "123";
+
+if(!isset($_SESSION['clef_de_session'])){
+    require_once 'accueil.php';
+}
 
 // SI nous ne sommes pas connectés
 
