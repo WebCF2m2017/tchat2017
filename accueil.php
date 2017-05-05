@@ -6,8 +6,8 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     
     
     if($login){
-        $DB->query("SELECT u.idutil, u.login FROM util u WHERE u.login ='$this->login' AND u.mdp ='$this->mdp'");
-        $recup_util = mysqli_query($this->db, $sql)or die(mysqli_error($this->db));
+         
+        $recup_util = $db->query("SELECT u.idutil, u.login FROM util u WHERE u.login ='$login' AND u.mdp ='$mdp'");
         
         if(mysqli_num_rows($recup_util)){
            
