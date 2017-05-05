@@ -27,6 +27,6 @@ class DB{
 	public function query($sql){
 		$req = $this->db->query($sql);
 		return $req->fetchAll(PDO::FETCH_ASSOC);
-	}
+	} 
 }
 
