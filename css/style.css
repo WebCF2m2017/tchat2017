@@ -1,11 +1,14 @@
 body {
-  
     color: black;
-    background-image: url(imag/1.jpg);
+   /* background-image: url(imag/1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;    
+    background-attachment: fixed; */
+    background-color: #FAEEDE;   
+}
+#slid{
+    margin-top: 130px;
 }
 #title{
     text-align: center;
@@ -18,12 +21,12 @@ body {
 a{
     text-decoration: none;
     text-align: center;
-    color: blue;
+    color: black;
 }
 form {
        margin-left: 505px;
-      background-color:#D5AF68;
-       height: 285px;
+      background-color:#5FB7D9;
+       height: 325px;
        width: 250px;
        border-radius: 25px 0px;
        font-family: 'Bitter', serif;

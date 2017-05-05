@@ -43,16 +43,17 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
 
 			function miseEnGras(event){ 
 				this.style.fontWeight="bold";
-				this.style.color="red"; 
+				this.style.color="black"; 
 				}
 
 			function normal(event){ 
 				this.style.fontWeight="normal";
-				this.style.color="black";
+				this.style.color="red";
 				}			
 		</script>
     </head>
     <body onload="init();">
+        <section id="slid">
         <div id="title">
              <h1>Se Connecter</h1> </div>
         <div id="galeriep">
@@ -77,5 +78,6 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
         <?php
         if(isset($erreur)){ echo "<h3 >$erreur</h3>";}
         ?>
+            </section>
     </body>
 </html>
