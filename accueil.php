@@ -32,14 +32,12 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     <head>
         <meta charset="UTF-8">
         <title>Se Connecter</title>
-        <link rel="stylesheet" type="text/css" href="../css/moncss.css">
-        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     </head>
     <body>
         <div id="title">
              <h1>Se Connecter</h1> </div>
         <div id="galeriep">
-             <h2><a href=''>Retour à l'accueil du site</a></h2>
+             <h2><a href="?inscription">Inscription</a></h2>
         </div>
             <form action="" method="POST" name="connection">
     <ul class="form-style-1">
