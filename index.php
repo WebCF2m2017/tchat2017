@@ -1,12 +1,10 @@
 <?php
-/* 
- * Cette page sera notre contrôleur frontal
- */
 
-// ouverture de session
+
+
 session_start();
 
-// importation de config.php
+
 require_once 'config.php';
 require_once 'connect.php';
 require_once 'fonctions.php';
