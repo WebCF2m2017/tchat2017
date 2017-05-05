@@ -13,15 +13,22 @@ http://tchat.webdev-cf2m.be/
 
 # création DB
 
+-- -----------------------------------------------------
+-- Table `sql8614_tchat`.`util`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sql8614_tchat`.`util` (
   `idutil` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(45) NOT NULL,
   `mdp` VARCHAR(32) NOT NULL,
   `mail` VARCHAR(80) NOT NULL,
+  `clefutil` VARCHAR(64) NOT NULL,
+`actif` tinyint(1) NOT NULL COMMENT 'actif à 1',
   PRIMARY KEY (`idutil`))
 ENGINE = InnoDB;
 
-CREATE UNIQUE INDEX `login_UNIQUE` ON `sql8614_tchat`.`util` (`login` ASC);
+ALTER TABLE `util`
+  ADD UNIQUE KEY `login_UNIQUE` (`login`),
+  ADD UNIQUE KEY `clefutil` (`clefutil`);
 
 
 -- -----------------------------------------------------
@@ -29,7 +36,6 @@ CREATE UNIQUE INDEX `login_UNIQUE` ON `sql8614_tchat`.`util` (`login` ASC);
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sql8614_tchat`.`message` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `titre` VARCHAR(45) NOT NULL,
   `texte` VARCHAR(120) NOT NULL,
   `ladate` TIMESTAMP NOT NULL DEFAULT NOW(),
   `util_idutil` INT UNSIGNED NOT NULL,
