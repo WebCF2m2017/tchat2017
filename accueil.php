@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     $login = htmlspecialchars(strip_tags(trim($_POST['clogin'])),ENT_QUOTES);
-    $mdp = trim($_POST['cmdp']);
+    $mdp = sha256(trim($_POST['cmdp']));
     
     
     if($login){
