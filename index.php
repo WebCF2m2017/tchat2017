@@ -9,7 +9,7 @@ session_start();
 
 require_once 'config.php';
 require_once 'db.class.php';
-$db = new DB(); 
+$db = new DB(DB_HOST,DB_LOGIN,DB_PASS,DB_NAME); 
 
 
 

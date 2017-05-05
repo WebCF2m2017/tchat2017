@@ -9,7 +9,7 @@ class DB{
 	private $db;
 
 
-	public function __construct($host=null,$login=null,$pwd=null,$dataname=null){
+	public function __construct($host,$login,$pwd,$dataname){
 		if($host!=null){
 			$this->host = DB_HOST;
 			$this->login = DB_LOGIN;

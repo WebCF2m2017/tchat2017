@@ -9,11 +9,10 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
          
         $recup_util = $db->query("SELECT u.idutil, u.login FROM util u WHERE u.login ='$login' AND u.mdp ='$mdp'");
         
-        if(mysqli_num_rows($recup_util)){
+        if(!empty($recup_util)){
            
-            $_SESSION = mysqli_fetch_assoc($recup_util);
              
-            $_SESSION['clef_de_session']=session_id();
+            $_SESSION['clef_de_session']= session_id();
             
             header("Location: ./");
         }else{ 
