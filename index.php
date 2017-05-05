@@ -7,12 +7,12 @@ session_start();
 
 // importation de config.php
 
-require_once 'dbtraitement.class.php';
+require_once 'db.class.php';
+$db = new DB(); 
 
 
-
-require_once 'config.php';
-require_once 'connect.php';
+// require_once 'config.php';
+// require_once 'connect.php';
 require_once 'fonctions.php';
 
 
