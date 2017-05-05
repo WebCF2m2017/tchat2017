@@ -2,10 +2,10 @@
 
 class DB{
 
-	private $host ="";
-	private $login = "root";
-	private $pwd = "";
-	private $dataname = "sql8614_tchat";
+	private $host;
+	private $login;
+	private $pwd;
+	private $dataname;
 	private $db;
 
 
