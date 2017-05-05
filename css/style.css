@@ -1,0 +1,46 @@
+body {
+  
+    color: black;
+    background-image: url(imag/1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;    
+}
+#title{
+    text-align: center;
+    
+ 
+}
+#galeriep{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    text-align: center;
+    color: blue;
+}
+form {
+       margin-left: 505px;
+      background-color:#D5AF68;
+       height: 285px;
+       width: 250px;
+       border-radius: 25px 0px;
+       font-family: 'Bitter', serif;
+       border: 1px  black solid;
+}
+ul{
+    padding:50px 0px 0px 47px;
+}
+
+input{
+    height: 30px;
+    width: 150px;
+    margin:11px 0px 15px 0px;
+    border-radius: 7px 0px;   
+}
+h3{
+    text-align: center;
+    color:black;
+    margin-top: 40px;
+}

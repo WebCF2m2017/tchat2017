@@ -32,19 +32,38 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     <head>
         <meta charset="UTF-8">
         <title>Se Connecter</title>
-        <link rel="stylesheet" type="text/css" href="../css/moncss.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+        	<script>
+			function init() {
+				document.getElementById('title').onmouseover = miseEnGras;
+				document.getElementById('title').onmouseout = normal;
+			}
+
+			function miseEnGras(event){ 
+				this.style.fontWeight="bold";
+				this.style.color="red"; 
+				}
+
+			function normal(event){ 
+				this.style.fontWeight="normal";
+				this.style.color="black";
+				}			
+		</script>
     </head>
-    <body>
+    <body onload="init();">
         <div id="title">
              <h1>Se Connecter</h1> </div>
         <div id="galeriep">
              <h2><a href=''>Retour à l'accueil du site</a></h2>
         </div>
-            <form action="" method="POST" name="connection">
+    <form action="" method="POST" name="connection">
     <ul class="form-style-1">
-    <li><label>Username <span class="required">*</span></label>
-    <input type="text" name="clogin" class="field-long" placeholder="First"/>
+    <li>
+        <label>Username <span class="required">*</span></label>
+        <input type="text" name="clogin" class="field-long" placeholder=""/>
+    </li>
     <li>
         <label>PassWord <span class="required">*</span></label>
         <input type="password" name="cmdp" class="field-long-pass"/>
@@ -56,7 +75,7 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     </form>
 
         <?php
-        if(isset($erreur)){ echo "<h3>$erreur</h3>";}
+        if(isset($erreur)){ echo "<h3 >$erreur</h3>";}
         ?>
     </body>
 </html>
