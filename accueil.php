@@ -35,6 +35,7 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bitter|Lobster" rel="stylesheet">
         	<script>
 			function init() {
 				document.getElementById('title').onmouseover = miseEnGras;
