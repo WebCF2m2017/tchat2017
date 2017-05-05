@@ -3,6 +3,9 @@
 #slid{
     margin-top: 130px;
 }
+.formulair{
+   margin-top: 130px;
+}
 #title{
     text-align: center;
     font-family: 'Bitter', serif;
@@ -19,11 +22,14 @@ a{
 form {
        margin-left: 505px;
       background-color:#5FB7D9;
-       height: 325px;
+       height: 355px;
        width: 250px;
        border-radius: 25px 0px;
        font-family: 'Bitter', serif;
        border: 1px  black solid;
+}
+.put{
+    padding: 40px;
 }
 ul{
     padding:50px 0px 0px 47px;
@@ -31,7 +37,7 @@ ul{
 
 input{
     height: 30px;
-    width: 150px;
+    width: 185pxpx;
     margin:11px 0px 15px 0px;
     border-radius: 7px 0px;   
 }
@@ -39,6 +45,9 @@ h3{
     text-align: center;
     color:black;
     margin-top: 40px;
+}
+h1{
+    text-align: center;
 }
 
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
