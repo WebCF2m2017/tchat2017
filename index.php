@@ -5,9 +5,15 @@
 session_start();
 
 
+// importation de config.php
+
+require_once 'dbtraitement.class.php';
+
+
 require_once 'config.php';
 require_once 'connect.php';
 require_once 'fonctions.php';
+
 
 if(isset($_GET['inscription'])){
     require_once 'inscription.php';
@@ -60,6 +66,8 @@ elseif(!isset($_SESSION['clef_de_session'])){
 
 // John modidifie ajax.js pour pouvoir envoyer des infos du formulaire vers php=>sql=>php
 
-// igor, crée des fichiers .php qui vont afficher les données venant de la db, ou insérer dans la db depuois un formulaire
+// igor, crée des fichiers .php qui vont afficher les données venant de la db, ou insérer dans la db depuois un formulaire (insertion db)
+
 
 // Mounir, passe chez tout le monde, et trouve le moyen d'harmoniser le travail des différents intervenants
+
