@@ -2,7 +2,7 @@
 
 class DB{
 
-	private $host ="localhost";
+	private $host ="";
 	private $login = "root";
 	private $pwd = "";
 	private $dataname = "sql8614_tchat";
@@ -11,10 +11,10 @@ class DB{
 
 	public function __construct($host=null,$login=null,$pwd=null,$dataname=null){
 		if($host!=null){
-			$this->host = $host;
-			$this->login = $login;
-			$this->pwd = $pwd;
-			$this->dataname= $dataname;
+			$this->host = DB_HOST;
+			$this->login = DB_LOGIN;
+			$this->pwd = DB_PASS;
+			$this->dataname = DB_NAME;
 		}
 		try{
 			$this->db = new PDO("mysql:host=".$this->host.';dbname='.$this->dataname, $this->login, $this->pwd, array(
