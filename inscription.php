@@ -56,10 +56,15 @@ if(isset($_POST['lelogin'])){
     <head>
         <meta charset="UTF-8">
         <title>Inscription</title>
+        
+         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bitter|Lobster" rel="stylesheet">
     </head>
     <body>
         <hr/>
-        <div>
+        <div class="formulair">
             <h1>Inscription</h1>
             <?php
             if(isset($mail_confimation)){
@@ -70,6 +75,7 @@ if(isset($_POST['lelogin'])){
             }else{
             ?>
             <form action="" method="POST" name="inscription">
+                <section class="put">                 
                 <input type="text" name='lelogin' placeholder="Votre login" <?php if(isset($_POST['lelogin'])) echo " value='{$_POST['lelogin']}' " ?> required />
                <?php if(isset($erreur_login)) echo $erreur_login ?>
                 <br/>
@@ -78,6 +84,7 @@ if(isset($_POST['lelogin'])){
                 <input type="email" name='lemail' <?php if(isset($_POST['lemail'])) echo " value='{$_POST['lemail']}' " ?> placeholder="Votre adresse mail" required /><?php if(isset($erreur_mail)) echo $erreur_mail ?><br/>
                 
                 <input type="submit" value="S'inscrire" />
+                </section> 
             </form>
             <?php
             }
