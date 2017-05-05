@@ -59,4 +59,6 @@ if(!isset($_SESSION['clef_de_session'])){
 
 // igor, crée des fichiers .php qui vont afficher les données venant de la db, ou insérer dans la db depuois un formulaire (insertion db)
 
-// Mounir, passe chez tout le monde, et trouve le moyen d'harmoniser le travail des différents intervenantsgit sta
+
+// Mounir, passe chez tout le monde, et trouve le moyen d'harmoniser le travail des différents intervenants
+
