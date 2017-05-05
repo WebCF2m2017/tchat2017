@@ -1,3 +1,46 @@
+
+
+#slid{
+    margin-top: 130px;
+}
+#title{
+    text-align: center;
+    font-family: 'Bitter', serif;
+    font-family: 'Lobster', cursive;
+}
+#galeriep{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    text-align: center;
+    color: rgba(82,179,217,0.9);
+}
+form {
+       margin-left: 505px;
+      background-color:#5FB7D9;
+       height: 325px;
+       width: 250px;
+       border-radius: 25px 0px;
+       font-family: 'Bitter', serif;
+       border: 1px  black solid;
+}
+ul{
+    padding:50px 0px 0px 47px;
+}
+
+input{
+    height: 30px;
+    width: 150px;
+    margin:11px 0px 15px 0px;
+    border-radius: 7px 0px;   
+}
+h3{
+    text-align: center;
+    color:black;
+    margin-top: 40px;
+}
+
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
 @import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
 
@@ -10,9 +53,7 @@ html, body {
   background: rgba(82,179,217,0.3);
   color: inherit;
 }
-a{
-  color: rgba(82,179,217,0.9);
-}
+
 
 /* M E N U */
 
@@ -341,3 +382,4 @@ input.textarea {
     color: #FE4040;
     font-weight: bold;
 }
+
