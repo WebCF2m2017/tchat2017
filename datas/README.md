@@ -1,10 +1,9 @@
-# Création de la structure de la DB
+# création de la structure de la DB
 Nous allons créer une DB mysql dans Workbench
-## Exercice, créez chacun une DB dans workbench (nom de fichier : tchat{prenom}.mwb)
-Vous devez penser à créer 2 ou 3 tables:
+## Exercice, créer chacun une DB dans workbench (nom de fichier : tchat(prenom).mwb)
+Vous devez penser à créer 3 tables
 
-- util => utilisateurs (id, login, mdp, mail,....)
+- util => utilisateurs (id, login, mdp, mail,...)
 
-- messages => les messages (id, idutil, titre, texte, ladate, ....)
-
+- messages => les messages (id, idutil, titre, texte, ladate, .....)
 
