@@ -10,6 +10,7 @@ session_start();
 require_once 'dbtraitement.class.php';
 
 
+
 require_once 'config.php';
 require_once 'connect.php';
 require_once 'fonctions.php';

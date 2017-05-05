@@ -1,16 +1,13 @@
 <?php
+
 if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     $login = htmlspecialchars(strip_tags(trim($_POST['clogin'])),ENT_QUOTES);
     $mdp = sha256(trim($_POST['cmdp']));
     
     
     if($login){
-        
-        $sql="SELECT u.idutil, u.login
-            FROM util u 
-            WHERE u.login = '$login' AND u.mdp = '$mdp';
-            ";
-        $recup_util = mysqli_query($db, $sql)or die(mysqli_error($db));
+        $DB->query("SELECT u.idutil, u.login FROM util u WHERE u.login ='$this->login' AND u.mdp ='$this->mdp'");
+        $recup_util = mysqli_query($this->db, $sql)or die(mysqli_error($this->db));
         
         if(mysqli_num_rows($recup_util)){
            
