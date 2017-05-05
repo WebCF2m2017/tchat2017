@@ -44,7 +44,7 @@ CREATE TABLE `util` (
 --
 
 INSERT INTO `util` (`idutil`, `login`, `mdp`, `mail`, `clefutil`, `actif`) VALUES
-(1, 'admin', '123', 'admin@admin', 'xwvxcwvcv', 1);
+(1, 'admin', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'admin@admin', 'xwvxcwvcv', 1);
 
 --
 -- Index pour les tables exportées
