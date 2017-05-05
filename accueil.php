@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     $login = htmlspecialchars(strip_tags(trim($_POST['clogin'])),ENT_QUOTES);
-    $mdp = trim($_POST['cmdp']);
+    $mdp = sha256(trim($_POST['cmdp']));
     
     
     if($login){
@@ -32,6 +32,7 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     <head>
         <meta charset="UTF-8">
         <title>Se Connecter</title>
+
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
@@ -58,7 +59,7 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
         <div id="title">
              <h1>Se Connecter</h1> </div>
         <div id="galeriep">
-             <h2><a href=''>Retour à l'accueil du site</a></h2>
+             <h2><a href="?inscription">Inscription</a></h2>
         </div>
     <form action="" method="POST" name="connection">
     <ul class="form-style-1">

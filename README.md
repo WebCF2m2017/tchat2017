@@ -13,30 +13,72 @@ http://tchat.webdev-cf2m.be/
 
 # création DB
 
-CREATE TABLE IF NOT EXISTS `sql8614_tchat`.`util` (
-  `idutil` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `login` VARCHAR(45) NOT NULL,
-  `mdp` VARCHAR(32) NOT NULL,
-  `mail` VARCHAR(80) NOT NULL,
-  PRIMARY KEY (`idutil`))
-ENGINE = InnoDB;
+--
+-- Structure de la table `message`
+--
 
-CREATE UNIQUE INDEX `login_UNIQUE` ON `sql8614_tchat`.`util` (`login` ASC);
+CREATE TABLE `message` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `texte` varchar(120) NOT NULL,
+  `ladate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `util_idutil` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `sql8614_tchat`.`message`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sql8614_tchat`.`message` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `titre` VARCHAR(45) NOT NULL,
-  `texte` VARCHAR(120) NOT NULL,
-  `ladate` TIMESTAMP NOT NULL DEFAULT NOW(),
-  `util_idutil` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+--
+-- Structure de la table `util`
+--
 
-CREATE INDEX `fk_message_util_idx` ON `sql8614_tchat`.`message` (`util_idutil` ASC);
+CREATE TABLE `util` (
+  `idutil` int(10) UNSIGNED NOT NULL,
+  `login` varchar(45) NOT NULL,
+  `mdp` char(64) NOT NULL,
+  `mail` varchar(80) NOT NULL,
+  `clefutil` varchar(64) NOT NULL,
+  `actif` tinyint(1) NOT NULL COMMENT 'actif à 1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `util`
+--
+
+INSERT INTO `util` (`idutil`, `login`, `mdp`, `mail`, `clefutil`, `actif`) VALUES
+(1, 'admin', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'admin@admin', 'xwvxcwvcv', 1);
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_message_util_idx` (`util_idutil`);
+
+--
+-- Index pour la table `util`
+--
+ALTER TABLE `util`
+  ADD PRIMARY KEY (`idutil`),
+  ADD UNIQUE KEY `login_UNIQUE` (`login`),
+  ADD UNIQUE KEY `clefutil` (`clefutil`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `message`
+--
+ALTER TABLE `message`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `util`
+--
+ALTER TABLE `util`
+  MODIFY `idutil` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 
 # config.php
