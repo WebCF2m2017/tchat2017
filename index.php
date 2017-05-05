@@ -7,11 +7,41 @@
 session_start();
 
 // importation de config.php
+
 require_once 'dbtraitement.class.php';
+
+require_once 'config.php';
+require_once 'connect.php';
+
 
 // variables provisoires
 $login = "admin";
 $pass = "123";
+
+if(!isset($_SESSION['clef_de_session'])){
+    require_once 'accueil.php';
+}else{
+    
+    if($_SESSION['clef_de_session']== session_id()){
+        
+        if(isset($_GET['action'])){
+           
+            switch($_GET['action']){
+                
+                case "deco":
+                    header("Location: disconnect.php");
+                    break;
+
+                default :
+                    header("Location: ./");
+            }
+        }else{
+            require_once 'base.php';
+        }
+    }else{
+        header("Location: disconnect.php");
+    }
+}
 
 // SI nous ne sommes pas connectés
 
