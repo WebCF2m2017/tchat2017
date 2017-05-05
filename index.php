@@ -9,12 +9,21 @@ session_start();
 // importation de config.php
 require_once 'config.php';
 require_once 'connect.php';
+require_once 'fonctions.php';
 
-// variables provisoires
-$login = "admin";
-$pass = "123";
+if(isset($_GET['inscription'])){
+    require_once 'inscription.php';
+    
+}elseif(isset($_GET['confirm'])&&isset($_GET['id'])&&isset($_GET['c'])&&
+        ctype_digit($_GET['id']) && !empty($_GET['c'])
+        ){
+        $id = (int) $_GET['id'];
+        $clef = htmlspecialchars($_GET['c'],ENT_QUOTES);
+    require_once 'confirm.php';
 
-if(!isset($_SESSION['clef_de_session'])){
+}
+
+elseif(!isset($_SESSION['clef_de_session'])){
     require_once 'accueil.php';
 }else{
     
@@ -23,7 +32,7 @@ if(!isset($_SESSION['clef_de_session'])){
         if(isset($_GET['action'])){
            
             switch($_GET['action']){
-                
+
                 case "deco":
                     header("Location: disconnect.php");
                     break;
