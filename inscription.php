@@ -69,6 +69,7 @@ if(isset($_POST['lelogin'])){
             <?php
             }else{
             ?>
+            <a href="./"><button>Retour a l'accueil</button></a>
             <form action="" method="POST" name="inscription">
                 <input type="text" name='lelogin' placeholder="Votre login" <?php if(isset($_POST['lelogin'])) echo " value='{$_POST['lelogin']}' " ?> required />
                <?php if(isset($erreur_login)) echo $erreur_login ?>
