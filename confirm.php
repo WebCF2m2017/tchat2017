@@ -4,7 +4,7 @@ if(!strstr($_SERVER['PHP_SELF'],"index.php")){
     header("Location: ./");
 }
 
-$sql = "UPDATE util SET actif=1 WHERE id=$id AND clefutil='$clef' AND actif=0;
+$sql = "UPDATE util SET actif=1 WHERE idutil=$id AND clefutil='$clef' AND actif=0;
     ";
 $recup_sql = mysqli_query($db, $sql)or die(mysqli_error($db));
 
