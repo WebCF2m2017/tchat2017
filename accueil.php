@@ -2,7 +2,7 @@
 
 if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     $login = htmlspecialchars(strip_tags(trim($_POST['clogin'])),ENT_QUOTES);
-    $mdp = trim($_POST['cmdp']);
+    $mdp = sha256(trim($_POST['cmdp']));
     
     
     if($login){
@@ -29,19 +29,41 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     <head>
         <meta charset="UTF-8">
         <title>Se Connecter</title>
-        <link rel="stylesheet" type="text/css" href="../css/moncss.css">
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bitter|Lobster" rel="stylesheet">
+        	<script>
+			function init() {
+				document.getElementById('title').onmouseover = miseEnGras;
+				document.getElementById('title').onmouseout = normal;
+			}
+
+			function miseEnGras(event){ 
+				this.style.fontWeight="bold";
+				this.style.color="black"; 
+				}
+
+			function normal(event){ 
+				this.style.fontWeight="normal";
+				this.style.color="red";
+				}			
+		</script>
     </head>
-    <body>
+    <body onload="init();">
+        <section id="slid">
         <div id="title">
              <h1>Se Connecter</h1> </div>
         <div id="galeriep">
-             <h2><a href=''>Retour à l'accueil du site</a></h2>
+             <h2><a href="?inscription">Inscription</a></h2>
         </div>
-            <form action="" method="POST" name="connection">
+    <form action="" method="POST" name="connection">
     <ul class="form-style-1">
-    <li><label>Username <span class="required">*</span></label>
-    <input type="text" name="clogin" class="field-long" placeholder="First"/>
+    <li>
+        <label>Username <span class="required">*</span></label>
+        <input type="text" name="clogin" class="field-long" placeholder=""/>
+    </li>
     <li>
         <label>PassWord <span class="required">*</span></label>
         <input type="password" name="cmdp" class="field-long-pass"/>
@@ -53,7 +75,8 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     </form>
 
         <?php
-        if(isset($erreur)){ echo "<h3>$erreur</h3>";}
+        if(isset($erreur)){ echo "<h3 >$erreur</h3>";}
         ?>
+            </section>
     </body>
 </html>
