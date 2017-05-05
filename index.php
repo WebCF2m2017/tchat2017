@@ -7,7 +7,7 @@
 session_start();
 
 // importation de config.php
-require_once 'config.php';
+require_once 'dbtraitement.class.php';
 
 // variables provisoires
 $login = "admin";
@@ -27,6 +27,6 @@ $pass = "123";
 
 // John modidifie ajax.js pour pouvoir envoyer des infos du formulaire vers php=>sql=>php
 
-// igor, crée des fichiers .php qui vont afficher les données venant de la db, ou insérer dans la db depuois un formulaire
+// igor, crée des fichiers .php qui vont afficher les données venant de la db, ou insérer dans la db depuois un formulaire (insertion db)
 
-// Mounir, passe chez tout le monde, et trouve le moyen d'harmoniser le travail des différents intervenants
+// Mounir, passe chez tout le monde, et trouve le moyen d'harmoniser le travail des différents intervenantsgit sta
