@@ -2,11 +2,6 @@
 
 class DB{
 
-	private $titre;
-	private $texte;
-	private $idutil;
-	private $clef_de_session;
-
 	private $host ="localhost";
 	private $login = "root";
 	private $pwd = "";
@@ -30,12 +25,8 @@ class DB{
 		}
 	}
 	public function query($sql){
-		$req = $this->db->prepare($sql);
-		$req = execute();
-		return $req->fetchAll();
-	}
-	public function verif_session($clef_de_session){
-		return $this->clef_de_session == session_id();
+		$req = $this->db->query($sql);
+		return $req->fetchAll(PDO::FETCH_ASSOC);
 	}
 }
 
