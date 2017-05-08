@@ -28,7 +28,15 @@ if(isset($_GET['inscription'])){
 
 }
 
+
 elseif(!isset($_SESSION['clef_de_session'])){
+     if(isset($_GET['actif'])){
+                if($_GET['actif']=="ok"){
+                    $dit = "Félicitation vous venez d'activer votre compte!";
+                }else{
+                    $dit = "Votre compte est déjà actif";
+                }
+        }
     require_once 'accueil.php';
 }else{
     
@@ -46,6 +54,7 @@ elseif(!isset($_SESSION['clef_de_session'])){
                     header("Location: ./");
             }
         }else{
+           
             require_once 'base.php';
         }
     }else{

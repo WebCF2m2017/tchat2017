@@ -9,9 +9,9 @@ $sql = "UPDATE util SET actif=1 WHERE idutil=$id AND clefutil='$clef' AND actif=
 $recup_sql = $db->db->exec($sql);
 
 if($recup_sql){
-    header("Location: base.php ");
+    header("Location: ./?actif=ok");
 }else{
-    echo "Pas Activé";
+    header("Location: ./?actif=ko");
 }
 ?>
 <!DOCTYPE html>

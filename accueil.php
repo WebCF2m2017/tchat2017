@@ -56,6 +56,9 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
              <h1>Se Connecter</h1> </div>
         <div id="galeriep">
              <h2><a href="?inscription">Inscription</a></h2>
+             <?php
+             if(isset($dit)) echo "<h2>$dit</h2>";
+             ?>
         </div>
     <form action="" method="POST" name="connection">
     <ul class="form-style-1">
