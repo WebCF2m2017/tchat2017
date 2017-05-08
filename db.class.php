@@ -1,12 +1,12 @@
 <?php
 
-class DB{
+class DB extends PDO{
 
 	private $host;
 	private $login;
 	private $pwd;
 	private $dataname;
-	private $db;
+	public $db;
 
 
 	public function __construct($host,$login,$pwd,$dataname){
@@ -19,7 +19,7 @@ class DB{
 		try{
 			$this->db = new PDO("mysql:host=".$this->host.';dbname='.$this->dataname, $this->login, $this->pwd, array(
 				PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8',
-				PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
+				PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT));
 		}catch(PDOExecption $e){
 			die("Connexion à la db impossible");
 		}
