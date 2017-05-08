@@ -20,21 +20,30 @@ if(isset($_POST['lelogin'])){
                 exit();
             }else{
                 
+                
+                // création de la clef
                 $clef = clef_u($lelogin);
                 
-                $sql="INSERT INTO util (login,mdp,mail,clefutil,actif) VALUES ('$lelogin','$lemdp','$lemail','$clef',0);";
+                // on va créer une requête préparée en utilisant les ? pour chaques variables que l'on veut traiter
+                $insert = $db->db->prepare("INSERT INTO util (login,mdp,mail,clefutil,actif) VALUES (?,?,?,?,0);");
+                // on rajoute chaque variable à la requête
+                $insert->bindValue(1,$lelogin,PDO::PARAM_STR);
+                $insert->bindValue(2,$lemdp,PDO::PARAM_STR);
+                $insert->bindValue(3,$lemail,PDO::PARAM_STR);
+                $insert->bindValue(4,$clef,PDO::PARAM_STR);
                 
-                $insert = mysqli_query($db, $sql);
                 
-                if(mysqli_error($db)==true){
+                // on exécute la requête
+                $verif = $insert->execute();
+               
+                
+                if(!$verif){
                    
-                    if(mysqli_errno($db)==1062){
+                    if($insert->errorInfo()[1]==1062){
                         
-                        if(strstr(mysqli_error($db),"lelogin")){
+
                             $erreur_login = "<span style='color:red'>$lelogin est déjà utilisé !!!</span>";
-                        }else{
-                            $erreur_mail = "<span style='color:red'>$lemail est déjà utilisé !!!</span>";
-                        }
+                        
                         
                     }else{
                         die("Erreur inconnue lors de l'insertion");
@@ -42,7 +51,7 @@ if(isset($_POST['lelogin'])){
                 
                 }else{
                     
-                    $lastid = mysqli_insert_id($db);
+                    $lastid = $db->db->lastInsertId();
                     
                     $mail_confimation = valide_compte($lemail,$lelogin,$lastid,$clef);
                 }
