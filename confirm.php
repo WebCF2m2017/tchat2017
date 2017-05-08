@@ -6,9 +6,9 @@ if(!strstr($_SERVER['PHP_SELF'],"index.php")){
 
 $sql = "UPDATE util SET actif=1 WHERE idutil=$id AND clefutil='$clef' AND actif=0;
     ";
-$recup_sql = mysqli_query($db, $sql)or die(mysqli_error($db));
+$recup_sql = $db->db->exec($sql);
 
-if(mysqli_affected_rows($db)){
+if($recup_sql){
     header("Location: base.php ");
 }else{
     echo "Pas Activé";
