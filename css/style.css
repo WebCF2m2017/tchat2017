@@ -341,3 +341,15 @@ input.textarea {
     color: #FE4040;
     font-weight: bold;
 }
+
+
+
+.submit{
+    position: fixed;
+    display: block;
+    bottom: 15px;
+    right: 20px;
+    width: auto;
+    z-index: 100;
+    cursor: pointer;
+}

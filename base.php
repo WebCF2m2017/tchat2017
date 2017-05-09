@@ -4,6 +4,7 @@
       <title></title>
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <meta charset="utf-8">
+      <script src="js/ajax.js"></script>
     </head>
     <body>
     <!-- bordure du haut avec le nom des utilisateur connecté-->
@@ -49,6 +50,9 @@
     </ol>
     <!-- fin du contenue du tchat -->
     <!-- bouton d'envoie-->
-    <input class="textarea" type="text" placeholder="Type here!"/><div class="emojis"></div>
+    <form action="">
+        <input class="textarea" type="text" placeholder="Type here!"/><div class="emojis"></div>
+        <input class="submit" type="submit" value="Envoyer" onclick="event.preventDefault(); sendMessage(this.form);">
+    </form>
     </body>
     </html>
