@@ -1,3 +1,5 @@
+<?php require_once "ajaxCall.php" ?>
+
 <!DOCTYPE html>
     <html>
     <head>
@@ -10,7 +12,7 @@
     <!-- bordure du haut avec le nom des utilisateur connecté-->
     <div class="menu">
         <a href="?action=deco"><div class="back"><i class="fa fa-chevron-left"></i> <img src="http://i.imgur.com/DY6gND0.png" draggable="false"/></div></a>
-            <div class="name">Houssain</div>
+            <div class="name"><?= $_SESSION['username'] ?></div>
             <div class="last">18:09</div>
         </div>
     <!-- le contenue du tchat-->
@@ -50,8 +52,9 @@
     </ol>
     <!-- fin du contenue du tchat -->
     <!-- bouton d'envoie-->
-    <form action="">
-        <input class="textarea" type="text" placeholder="Type here!"/><div class="emojis"></div>
+    <form class="send" action="">
+        <input class="textarea" type="text" name="texte" placeholder="Type here!"/><div class="emojis"></div>
+        <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>">
         <input class="submit" type="submit" value="Envoyer" onclick="event.preventDefault(); sendMessage(this.form);">
     </form>
     </body>

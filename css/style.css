@@ -20,13 +20,13 @@ a{
     color: rgba(82,179,217,0.9);
 }
 form {
-       margin-left: 505px;
-      background-color:#5FB7D9;
-       height: 355px;
-       width: 250px;
-       border-radius: 25px 0px;
-       font-family: 'Bitter', serif;
-       border: 1px  black solid;
+    margin-left: 505px;
+    background-color:#5FB7D9;
+    height: 355px;
+    width: 250px;
+    border-radius: 25px 0px;
+    font-family: 'Bitter', serif;
+    border: 1px  black solid;
 }
 .put{
     padding: 40px;
@@ -37,7 +37,7 @@ ul{
 
 input{
     height: 30px;
-    width: 185pxpx;
+    width: 185px;
     margin:11px 0px 15px 0px;
     border-radius: 7px 0px;   
 }
@@ -366,6 +366,7 @@ input.textarea {
     padding-right: 55px;
     color: #666;
     font-weight: 400;
+    margin: 0 auto;
 }
 .emojis {
     position: fixed;
@@ -392,17 +393,27 @@ input.textarea {
     font-weight: bold;
 }
 
-<<<<<<< HEAD
+/** CA ME CASSE LES COUILLES */
 
-
-.submit{
+input.submit{
     position: fixed;
     display: block;
-    bottom: 15px;
+    bottom: 12px;
     right: 20px;
     width: auto;
     z-index: 100;
     cursor: pointer;
+    margin: 0 auto;
+    border: 0;
+    border-radius: 0;
 }
-=======
->>>>>>> a5a1e4efed8fe9ad0a6b65f86dec8ad121e1cdf2
+
+form.send {
+    margin: 0;
+    background-color: none;
+    height: 0;
+    width: 0;
+    border-radius: 0;
+    font-family: 'Bitter', serif;
+    border: 0;
+}

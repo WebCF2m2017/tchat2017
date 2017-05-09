@@ -52,18 +52,25 @@ function sendRegister(data)
 function sendMessage(data)
 {
 	var message = document.querySelector('input.textarea');
+	var user_id = document.querySelector('input[name="user_id"]').value;
+	var username = document.querySelector('div.name').innerHTML;
+	console.log(user_id);
 
-	data = "message=" + message.value;
+	data = "texte=" + message.value + "&user_id=" + user_id + "&username=" + username;
 
 	var xhr = creerXHR();
-	var url = "utils.php";
-	pushLastMessage(message.value); message.value = "";
-	/*
-	xhr.open("POST", url, true);
+	var url = "ajaxCall.php";
+	
+	
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhr.onload = function() { console.log(xhr.responseText); }
 	xhr.send(data);
-	*/
+
+	console.log(xhr.responseText);
+	
+	if (xhr == true)
+		pushLastMessage(message.value); message.value = "";
 }
 
 function getLastMessage()
