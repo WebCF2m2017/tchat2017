@@ -28,6 +28,8 @@ if (!empty($_POST))
 	{
 		$lulu = $db->db->prepare('INSERT INTO message(texte, util_idutil) VALUES(:texte, :util_idutil)');
 		$req = $lulu->execute(array(':texte' => $texte, 'util_idutil' => $user_id));
+		if($req)
+ -			echo 'ok';
 	}
 	
 }
