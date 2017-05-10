@@ -3,7 +3,7 @@
  */
 
 
-// création de l'objet XHR multi-navigateur
+// Création de l'objet XHR multi-navigateur
 function creerXHR() {
 	var xhr = null;
 	
@@ -29,42 +29,46 @@ function creerXHR() {
 
 function sendMessage(data)
 {
+	// Selection des elements HTML
 	var message = document.querySelector('input.textarea');
 	var user_id = document.querySelector('input[name="user_id"]').value;
 	var username = document.querySelector('div.name').innerHTML;
+	var chat = document.querySelector('ol');
 
+	// Prévient du rafraichissement de la page du bouton envoyer
 	event.preventDefault();
 
+	// Création des données POST à envoyer
 	data = "texte=" + message.value + "&user_id=" + user_id + "&username=" + username;
-
-	console.log(data);
 
 	var xhr = creerXHR();
 	var url = "ajaxCall.php";
 	
-	
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.onreadystatechange = function() { 
-		if(xhr.readyState == 4 && xhr.status == 200) {
+	xhr.onreadystatechange = function() 
+	{ 
+		if(xhr.readyState == 4 && xhr.status == 200) 
+		{
         	if (xhr.responseText == 'ok')
         	{
-        		document.querySelector('ol').innerHTML = "";
-        		message.value="";
+        		// Effacement de tous les elements du chat, du contenu du textarea
+        		chat.innerHTML = "";
+        		message.value = "";
+        		// Appel de la fonction getLastsMessage
 				getLastsMessage();
         	}
     	}
 		
 	}
-	xhr.send(data);
-		
+	xhr.send(data);	
 }
 
 // Cherche les deniers messages
 
 function getLastsMessage()
 {
-
+	var chat = document.querySelector('ol');
 	var xhr = creerXHR();
 	var url = "ajaxCall.php?getLastsMessage";
 
@@ -72,49 +76,41 @@ function getLastsMessage()
 	xhr.onreadystatechange = function() { 
 		if(xhr.readyState == 4 && xhr.status == 200)
 		{
-                    document.querySelector('ol').innerHTML = "";
-        		
+            chat.innerHTML = "";
 			var data = JSON.parse(xhr.responseText);
+			// Récéption des derniers méssage encodé en JSON
+			// On boucle chaque message pour l'envoyer a la fonction pushLastMessage
 			for (var i = (Object.keys(data).length-1); i >= 0; i--) {
-				
-					pushLastMessage(data[i].texte, data[i].login, data[i].ladate, false);
+				pushLastMessage(data[i].texte, data[i].login, data[i].ladate);
 			}
 		}
-
 	}
-
 	xhr.send();
-
 }
 
-// Insere le message
+// Insertion du message
 
-function pushLastMessage(message, username, date, erase)
+function pushLastMessage(message, username, date)
 {
-	if (erase === undefined)
-		erase = false;
-
-
-	messageBox = document.querySelector('ol');
-	//var save = messageBox.innerHTML
+	chat = document.querySelector('ol');
 	
-		
+	// Ajout des balises HTML dans le DOM
+	chat.innerHTML += "<li class='other'>" + 
+	"<div class='avatar'><img src='http://i.imgur.com/DY6gND0.png' draggable='false'/></div></div>" + 
+	"<div class='msg'>" +
+	"<p id='colorenvoie'>" + username + "</p>" +
+	"<p>" + message + "</p>" +
+	"<time>" + date + "</time>" + 
+	"</div>" +
+	"</li>";
 
-		messageBox.innerHTML += "<li class='other'>" + 
-		"<div class='avatar'><img src='http://i.imgur.com/DY6gND0.png' draggable='false'/></div></div>" + 
-		"<div class='msg'>" +
-		"<p id='colorenvoie'>" + username + "</p>" +
-		"<p>" + message + "</p>" +
-		"<time>" + date + "</time>" + 
-		"</div>" +
-		"</li>";
-
-		//messageBox.innerHTML += save;
-		window.scrollTo(0,document.body.scrollHeight + 100);
+	// Scroll de la page vers le bas
+	window.scrollTo(0,document.body.scrollHeight + 100);
 }
 
-// fonction qui vérifie si on doit mettre à jour le 'ol'
-function VerifNbMsg(){
+// Fonction qui vérifie si on doit mettre à jour le 'ol'
+function VerifNbMsg()
+{
     var xhr = creerXHR();
 	var url = "ajaxCount.php";
 
@@ -122,15 +118,10 @@ function VerifNbMsg(){
 	xhr.onreadystatechange = function() { 
 		if(xhr.readyState == 4 && xhr.status == 200)
 		{
-                    console.log(xhr.responseText);
 			if(xhr.responseText=="charge"){
-                            //console.log(getLastsMessage());
-                            getLastsMessage();
-                        }
-			
+            	getLastsMessage();
+			}	
 		}
-
 	}
-
 	xhr.send();
 }
