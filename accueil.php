@@ -8,11 +8,14 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     if($login){
          
         $recup_util = $db->query("SELECT u.idutil, u.login FROM util u WHERE u.login ='$login' AND u.mdp ='$mdp'");
-        
+
         if(!empty($recup_util)){
            
              
             $_SESSION['clef_de_session']= session_id();
+            $_SESSION['username'] = $recup_util[0]['login'];
+            $_SESSION['user_id'] = $recup_util[0]['idutil'];
+
             
             header("Location: ./");
         }else{ 
