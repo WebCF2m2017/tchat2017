@@ -25,35 +25,13 @@ function creerXHR() {
 	return xhr;
 }
 
-
-
-// Envoi du message dans la DB
-
-function sendRegister(data)
-{
-	var username = data.querySelector('input#username');
-	var password = data.querySelector('input#password');
-	var mail = data.querySelector('input#mail');
-	var submit = data.querySelector('input#submit');
-
-
-
-	data = "username=" + username.value + "&password=" + password.value + "&mail=" + mail.value;
-
-	var xhr = creerXHR();
-	var url = "utils.php";
-
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.onload = function() { console.log(xhr.responseText); }
-	xhr.send(data);
-}
-
 function sendMessage(data)
 {
 	var message = document.querySelector('input.textarea');
 	var user_id = document.querySelector('input[name="user_id"]').value;
 	var username = document.querySelector('div.name').innerHTML;
+
+	event.preventDefault();
 
 	data = "texte=" + message.value + "&user_id=" + user_id + "&username=" + username;
 
@@ -67,8 +45,8 @@ function sendMessage(data)
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhr.onreadystatechange = function() { 
 		if(xhr.readyState == 4 && xhr.status == 200) {
-        	console.log(xhr.responseText); 
-			pushLastMessage(message.value, username); message.value = "";
+        	if (xhr.responseText == 'ok')
+				pushLastMessage(message.value, username); message.value = "";
     	}
 		
 	}
@@ -79,29 +57,44 @@ function sendMessage(data)
 function getLastsMessage()
 {
 
-	var messageInput = data.querySelector('.textarea');
 	var xhr = creerXHR();
-	var url = "utils.php?lastsMessage";
+	var url = "ajaxCall.php?getLastsMessage";
 
 	xhr.open("GET", url, true);
-	xhr.onload = function() { console.log(xhr.responseText); }
+	xhr.onreadystatechange = function() { 
+		if(xhr.readyState == 4 && xhr.status == 200)
+		{
+			var data = JSON.parse(xhr.responseText);
+			console.log(xhr.responseText);
+			for (var i = 0; i < Object.keys(data).length; i++) {
+				if (i == 0)
+					pushLastMessage(data[i].texte, data[i].login, data[i].ladate, true);
+				else
+					pushLastMessage(data[i].texte, data[i].login, data[i].ladate, false);
+			}
+		}
+
+	}
+
 	xhr.send();
 
 }
 
-function pushLastMessage(message, username)
+function pushLastMessage(message, username, date, erase)
 {
-	messageBox = document.querySelector('ol');
-	messageBox.innerHTML += 
-	"<li class='other'>" + 
-	"<div class='avatar'><img src='http://i.imgur.com/DY6gND0.png' draggable='false'/></div></div>" + 
-	"<div class='msg'>" +
-	"<p id='colorenvoie'>" + username + "</p>" +
-	"<p>" + message + "</p>" +
-	"<time>20:17</time>" + 
-	"</div>" +
-	"</li>";
-	var limit = document.body.offsetHeight - window.innerHeight;
-	document.body.scrollTop = limit + 100;
+	if (erase === undefined)
+		erase = false;
 
+	messageBox = document.querySelector('ol');
+	if(erase)
+		messageBox.innerHTML = ""
+
+		messageBox.innerHTML += "<li class='other'>" + 
+		"<div class='avatar'><img src='http://i.imgur.com/DY6gND0.png' draggable='false'/></div></div>" + 
+		"<div class='msg'>" +
+		"<p id='colorenvoie'>" + username + "</p>" +
+		"<p>" + message + "</p>" +
+		"<time>" + date + "</time>" + 
+		"</div>" +
+		"</li>";
 }
