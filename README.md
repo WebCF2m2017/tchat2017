@@ -92,3 +92,8 @@ define("DB_LOGIN", "root");
 define("DB_PASS", "");
 define("DB_NAME", "sql8614_tchat");
 define("DB_CHARSET", "utf8");
+
+/*
+ * temps en secondes de vérification de nouveaux message
+ */
+define("AJAX_REFRESH", 3);
