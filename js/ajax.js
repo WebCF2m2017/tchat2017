@@ -50,7 +50,7 @@ function sendMessage(data)
         	if (xhr.responseText == 'ok')
         	{
         		document.querySelector('ol').innerHTML = "";
-        		message.value = "";
+        		message.value="";
 				getLastsMessage();
         	}
     	}
@@ -72,11 +72,11 @@ function getLastsMessage()
 	xhr.onreadystatechange = function() { 
 		if(xhr.readyState == 4 && xhr.status == 200)
 		{
+                    document.querySelector('ol').innerHTML = "";
+        		
 			var data = JSON.parse(xhr.responseText);
-			for (var i = 0; i < Object.keys(data).length; i++) {
-				if (i == 0)
-					pushLastMessage(data[i].texte, data[i].login, data[i].ladate, true);
-				else
+			for (var i = (Object.keys(data).length-1); i >= 0; i--) {
+				
 					pushLastMessage(data[i].texte, data[i].login, data[i].ladate, false);
 			}
 		}
@@ -96,9 +96,9 @@ function pushLastMessage(message, username, date, erase)
 
 
 	messageBox = document.querySelector('ol');
-	var save = messageBox.innerHTML
+	//var save = messageBox.innerHTML
 	
-		messageBox.innerHTML = ""
+		
 
 		messageBox.innerHTML += "<li class='other'>" + 
 		"<div class='avatar'><img src='http://i.imgur.com/DY6gND0.png' draggable='false'/></div></div>" + 
@@ -109,7 +109,7 @@ function pushLastMessage(message, username, date, erase)
 		"</div>" +
 		"</li>";
 
-		messageBox.innerHTML += save;
+		//messageBox.innerHTML += save;
 		window.scrollTo(0,document.body.scrollHeight + 100);
 }
 
@@ -122,7 +122,9 @@ function VerifNbMsg(){
 	xhr.onreadystatechange = function() { 
 		if(xhr.readyState == 4 && xhr.status == 200)
 		{
+                    console.log(xhr.responseText);
 			if(xhr.responseText=="charge"){
+                            //console.log(getLastsMessage());
                             getLastsMessage();
                         }
 			
