@@ -25,7 +25,7 @@
         <input class="submit" type="submit" value="Envoyer" onclick="event.preventDefault(); sendMessage(this.form);">
     </form>
     <script>
-    setInterval(VerifNbMsg,<?=(AJAX_REFRESH*1000)?>);
+    setInterval(function(){VerifNbMsg()},<?=(AJAX_REFRESH*1000)?>);
     </script>
     </body>
     </html>
