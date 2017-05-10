@@ -8,10 +8,6 @@ require_once 'db.class.php';
 $db = new DB(DB_HOST,DB_LOGIN,DB_PASS,DB_NAME); 
 
 
-
-
-
-
 if (!empty($_POST))
 {
 	extract($_POST);
@@ -31,6 +27,7 @@ if (!empty($_POST))
 
 		if($req)
 			echo 'ok';
+
 	}
 	
 }

@@ -24,5 +24,8 @@
         <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>">
         <input class="submit" type="submit" value="Envoyer" onclick="event.preventDefault(); sendMessage(this.form);">
     </form>
+    <script>
+    setInterval(VerifNbMsg,<?=(AJAX_REFRESH*1000)?>);
+    </script>
     </body>
     </html>
