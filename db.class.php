@@ -11,10 +11,10 @@ class DB extends PDO{
 
 	public function __construct($host,$login,$pwd,$dataname){
 		if($host!=null){
-			$this->host = DB_HOST;
-			$this->login = DB_LOGIN;
-			$this->pwd = DB_PASS;
-			$this->dataname = DB_NAME;
+			$this->host = $host;
+			$this->login = $login;
+			$this->pwd = $pwd;
+			$this->dataname = $dataname;
 		}
 		try{
 			$this->db = new PDO("mysql:host=".$this->host.';dbname='.$this->dataname, $this->login, $this->pwd, array(
