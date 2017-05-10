@@ -98,3 +98,23 @@ function pushLastMessage(message, username, date, erase)
 		"</div>" +
 		"</li>";
 }
+
+// fonction qui vérifie si on doit mettre à jour le 'ol'
+function VerifNbMsg(){
+    var xhr = creerXHR();
+	var url = "ajaxCount.php";
+
+	xhr.open("GET", url, true);
+	xhr.onreadystatechange = function() { 
+		if(xhr.readyState == 4 && xhr.status == 200)
+		{
+			if(xhr.responseText=="charge"){
+                            getLastsMessage();
+                        }
+			
+		}
+
+	}
+
+	xhr.send();
+}
