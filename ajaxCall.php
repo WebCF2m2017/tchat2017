@@ -8,10 +8,6 @@ require_once 'db.class.php';
 $db = new DB(DB_HOST,DB_LOGIN,DB_PASS,DB_NAME); 
 
 
-
-
-
-
 if (!empty($_POST))
 {
 	extract($_POST);
@@ -28,8 +24,10 @@ if (!empty($_POST))
 	{
 		$lulu = $db->db->prepare('INSERT INTO message(texte, util_idutil) VALUES(:texte, :util_idutil)');
 		$req = $lulu->execute(array(':texte' => $texte, 'util_idutil' => $user_id));
+
 		if($req)
- 			echo 'ok';
+			echo 'ok';
+
 	}
 	
 }

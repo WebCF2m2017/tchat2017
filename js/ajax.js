@@ -25,6 +25,8 @@ function creerXHR() {
 	return xhr;
 }
 
+// Envoi du message dans la base de donnée
+
 function sendMessage(data)
 {
 	var message = document.querySelector('input.textarea');
@@ -46,13 +48,19 @@ function sendMessage(data)
 	xhr.onreadystatechange = function() { 
 		if(xhr.readyState == 4 && xhr.status == 200) {
         	if (xhr.responseText == 'ok')
-				pushLastMessage(message.value, username); message.value = "";
+        	{
+        		document.querySelector('ol').innerHTML = "";
+        		message.value = "";
+				getLastsMessage();
+        	}
     	}
 		
 	}
 	xhr.send(data);
 		
 }
+
+// Cherche les deniers messages
 
 function getLastsMessage()
 {
@@ -65,7 +73,6 @@ function getLastsMessage()
 		if(xhr.readyState == 4 && xhr.status == 200)
 		{
 			var data = JSON.parse(xhr.responseText);
-			console.log(xhr.responseText);
 			for (var i = 0; i < Object.keys(data).length; i++) {
 				if (i == 0)
 					pushLastMessage(data[i].texte, data[i].login, data[i].ladate, true);
@@ -80,13 +87,17 @@ function getLastsMessage()
 
 }
 
+// Insere le message
+
 function pushLastMessage(message, username, date, erase)
 {
 	if (erase === undefined)
 		erase = false;
 
+
 	messageBox = document.querySelector('ol');
-	if(erase)
+	var save = messageBox.innerHTML
+	
 		messageBox.innerHTML = ""
 
 		messageBox.innerHTML += "<li class='other'>" + 
@@ -97,6 +108,9 @@ function pushLastMessage(message, username, date, erase)
 		"<time>" + date + "</time>" + 
 		"</div>" +
 		"</li>";
+
+		messageBox.innerHTML += save;
+		window.scrollTo(0,document.body.scrollHeight + 100);
 }
 
 // fonction qui vérifie si on doit mettre à jour le 'ol'
