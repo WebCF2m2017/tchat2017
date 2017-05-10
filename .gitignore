@@ -1,2 +1,8 @@
+# on bloque le dossier et son contenu créé par netbeans
 /nbproject/
+
+# on bloque les fichiers commençant par un "." dans le dossier doc (* représente n'importe quelle chaîne)
+/doc/.*
+
+# on bloque le fichier de config.php
 config.php
