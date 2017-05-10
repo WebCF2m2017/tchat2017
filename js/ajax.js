@@ -35,8 +35,7 @@ function sendMessage(data)
 	var username = document.querySelector('div.name').innerHTML;
 	var chat = document.querySelector('ol');
 
-	// Prévient du rafraichissement de la page du bouton envoyer
-	event.preventDefault();
+
 
 	// Création des données POST à envoyer
 	data = "texte=" + message.value + "&user_id=" + user_id + "&username=" + username;

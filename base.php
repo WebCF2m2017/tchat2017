@@ -23,7 +23,7 @@
         <input class="textarea" type="text" name="texte" placeholder="Type here!"/>
         <div class="emojis"></div>
         <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>">
-        <input class="submit" type="submit" value="Envoyer" onclick="sendMessage(this.form);">
+        <input class="submit" type="submit" value="Envoyer" onclick="event.preventDefault();sendMessage(this.form);">
     </form>
     <script>
         setInterval(function(){VerifNbMsg()},<?=(AJAX_REFRESH*1000)?>);
