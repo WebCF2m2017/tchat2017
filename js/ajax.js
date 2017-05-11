@@ -50,11 +50,11 @@ function init()
 
 function sendMessage(data)
 {
-	// Si le message contient plus de 120 caractère on affiche un alert et on annule la fonction
-	// Dans la base de donnée message, texte est un varchar(120) 
-	if(message.value.length >= 121)
+	// Si le message contient plus de 500 caractère on affiche un alert et on annule la fonction
+	// Dans la base de donnée message, texte est un varchar(500) 
+	if(message.value.length >= 501)
 	{
-		alert('Votre message ne peut contenir plus de 120 charactère');
+		alert('Votre message ne peut contenir plus de 500 caractères');
 		return false;
 	}
 
