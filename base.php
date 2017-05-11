@@ -4,12 +4,12 @@
       <title></title>
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <meta charset="utf-8">
-      <script src="js/ajax.min.js"></script>
+      <script src="js/ajax.js"></script>
     </head>
-    <body onload="getLastsMessage()">
+    <body>
     <!-- bordure du haut avec le nom des utilisateur connecté-->
     <div class="menu">
-        <a href="?action=deco"><div class="back"><i class="fa fa-chevron-left"></i> <img src="http://i.imgur.com/DY6gND0.png" draggable="false"/></div></a>
+        <a href="?action=deco"><div class="back"><i class="fa fa-chevron-left"></i> <img src="images/avatar.png" draggable="false"/></div></a>
             <div class="name"><?= $_SESSION['username'] ?></div>
             <div class="last">18:09</div>
         </div>
@@ -19,14 +19,62 @@
     </ol>
     <!-- fin du contenue du tchat -->
     <!-- bouton d'envoie-->
-    <form class="send" action="">
+    <form class="send">
         <input class="textarea" type="text" name="texte" placeholder="Type here!"/>
-        <div class="emojis"></div>
+        <div class="emojis" onclick="openEmojiContainer();"></div>
+        <div class="emoji-container">
+            <div class="emoji-self amazing" onclick="addEmoji(this)">
+                <img src="images/amazing.png" alt="amazing" title="amazing">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/anger.png" alt="anger" title="anger">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/exciting.png" alt="exciting" title="exciting">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/money.png" alt="money" title="money">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/super_man.png" alt="super_man" title="super_man">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/what.png" alt="what" title="what">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/unhappy.png" alt="unhappy" title="unhappy">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/shame.png" alt="shame" title="shame">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/shocked.png" alt="shocked" title="shocked">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/scorn.png" alt="scorn" title="scorn">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/haha.png" alt="haha" title="haha">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/black_heart.png" alt="black_heart" title="black_heart">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/nothing_to_say.png" alt="nothing_to_say" title="nothing_to_say">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/horror.png" alt="horror" title="horror">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/greedy.png" alt="greedy" title="greedy">
+            </div>
+            <div class="emoji-self" onclick="addEmoji(this)">
+                <img src="images/electric_shock.png" alt="electric_shock" title="electric_shock">
+            </div>
+        </div>
         <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>">
-        <input class="submit" type="submit" value="Envoyer" onclick="event.preventDefault();sendMessage(this.form);">
+        <input type="submit" class="submit" value="Envoyer">
     </form>
-    <script>
-        setInterval(function(){VerifNbMsg()},<?=(AJAX_REFRESH*1000)?>);
-    </script>
+
     </body>
     </html>

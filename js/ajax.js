@@ -25,17 +25,38 @@ function creerXHR() {
 	return xhr;
 }
 
+
+window.addEventListener("load", init);
+
+function init()
+{
+	// Initialisation des variables
+	containerOpen = false;
+	message = document.querySelector('input.textarea');
+	user_id = document.querySelector('input[name="user_id"]').value;
+	username = document.querySelector('div.name').innerHTML;
+	chat = document.querySelector('ol');
+	form = document.querySelector('form');
+
+	// Event déclenché quand le formulaire est envoyé
+	form.addEventListener('submit', function(event) { event.preventDefault(); sendMessage(this) });
+
+	// Initialisation des messages
+	getLastsMessage();
+}
+
+
 // Envoi du message dans la base de donnée
 
 function sendMessage(data)
 {
-	// Selection des elements HTML
-	var message = document.querySelector('input.textarea');
-	var user_id = document.querySelector('input[name="user_id"]').value;
-	var username = document.querySelector('div.name').innerHTML;
-	var chat = document.querySelector('ol');
-
-
+	// Si le message contient plus de 120 caractère on affiche un alert et on annule la fonction
+	// Dans la base de donnée message, texte est un varchar(120) 
+	if(message.value.length >= 121)
+	{
+		alert('Votre message ne peut contenir plus de 120 charactère');
+		return false;
+	}
 
 	// Création des données POST à envoyer
 	data = "texte=" + message.value + "&user_id=" + user_id + "&username=" + username;
@@ -67,7 +88,6 @@ function sendMessage(data)
 
 function getLastsMessage()
 {
-	var chat = document.querySelector('ol');
 	var xhr = creerXHR();
 	var url = "ajaxCall.php?getLastsMessage";
 
@@ -90,12 +110,10 @@ function getLastsMessage()
 // Insertion du message
 
 function pushLastMessage(message, username, date)
-{
-	chat = document.querySelector('ol');
-	
+{	
 	// Ajout des balises HTML dans le DOM
 	chat.innerHTML += "<li class='other'>" + 
-	"<div class='avatar'><img src='http://i.imgur.com/DY6gND0.png' draggable='false'/></div></div>" + 
+	"<div class='avatar'><img src='images/avatar.png' draggable='false'/></div></div>" + 
 	"<div class='msg'>" +
 	"<p id='colorenvoie'>" + username + "</p>" +
 	"<p>" + message + "</p>" +
@@ -123,4 +141,30 @@ function VerifNbMsg()
 		}
 	}
 	xhr.send();
+}
+
+// Fonction qui ouvre/ferme la boite d'emoji
+function openEmojiContainer()
+{
+	var emojiContainer = document.querySelector('.emoji-container');
+
+	if (!containerOpen)
+	{
+		containerOpen = true;
+		emojiContainer.style.display = "block";
+	}
+	else
+	{
+		containerOpen = false;
+		emojiContainer.style.display = "none";
+	}
+}
+
+// Fonction qui ajoute l'emoji dans le message
+function addEmoji(data)
+{
+	openEmojiContainer();
+	// La variable data renvoi la div qui a la classe emoji-self, on parcour son enfant(la balise IMG)
+	message.value += ' :' + data.children[0].alt + ': ';
+	message.focus();
 }
