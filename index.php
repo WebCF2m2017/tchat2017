@@ -9,11 +9,40 @@ session_start();
 
 require_once 'config.php';
 require_once 'db.class.php';
+require_once 'function-pagination.php';
 $db = new DB(DB_HOST,DB_LOGIN,DB_PASS,DB_NAME); 
 
 
 
 require_once 'fonctions.php';
+
+
+// pagination 
+$nb_tot = $db->$nb_tot = prepare("SELECT COUNT 'id' as id FROM 'message' ORDER BY 'ladate'");
+
+if(isset($_GET[$get_pagination])&& ctype_digit($_GET[$get_pagination])&&!empty($_GET[$get_pagination])){
+    $pg = $_GET[$get_pagination];
+}else{
+    $pg = 1;
+}
+
+$pagination = maPagination($nb_tot, $pg, $get_pagination, $_SESSION['nombre']);
+
+// calcul par rapport à la page actuelle (donne la première clef du tableau $donnees)
+$pour_i = ($pg-1)* $_SESSION['nombre'];
+// nombre total de page
+$tot_pg = ceil($nb_tot/$_SESSION['nombre']);
+
+for($i=$pour_i; $i<($pour_i+$_SESSION['nombre'])&&$i<$nb_tot; $i++){
+    $content.= "<h3>".$donnees[$i]."</h3>";
+}
+$content.=$pagination;
+
+if($pg>$tot_pg){
+    $content="Erreur 404";
+}
+
+// fin de pagination 
 
 
 if(isset($_GET['inscription'])){
