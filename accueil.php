@@ -10,14 +10,17 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
         $recup_util = $db->query("SELECT u.idutil, u.login FROM util u WHERE u.login ='$login' AND u.mdp ='$mdp'");
 
         if(!empty($recup_util)){
-           
-             
+           // si l'utilisateur existe mais est inactif
+            if($recup_util[0]['actif']==0){
+                $erreur = "Vous n'avez pas encore activé votre compte";
+            }else{ 
             $_SESSION['clef_de_session']= session_id();
             $_SESSION['username'] = $recup_util[0]['login'];
             $_SESSION['user_id'] = $recup_util[0]['idutil'];
 
             
             header("Location: ./");
+            }
         }else{ 
             $erreur = "Login et/ou mot de passe incorrecte(s)!";
         }
