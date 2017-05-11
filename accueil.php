@@ -7,7 +7,7 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     
     if($login){
          
-        $recup_util = $db->query("SELECT u.idutil, u.login FROM util u WHERE u.login ='$login' AND u.mdp ='$mdp'");
+        $recup_util = $db->query("SELECT u.idutil, u.login, u.actif FROM util u WHERE u.login ='$login' AND u.mdp ='$mdp'");
 
         if(!empty($recup_util)){
            // si l'utilisateur existe mais est inactif
