@@ -9,7 +9,7 @@
     <body onload="getLastsMessage()">
     <!-- bordure du haut avec le nom des utilisateur connecté-->
     <div class="menu">
-        <a href="?action=deco"><div class="back"><i class="fa fa-chevron-left"></i> <img src="http://i.imgur.com/DY6gND0.png" draggable="false"/></div></a>
+        <a href="?action=deco"><span class="button" title="deconnexion"><div class="back"><i class="fa fa-chevron-left"></i> <img src="http://i.imgur.com/DY6gND0.png" draggable="false"/></div></a>
             <div class="name"><?= $_SESSION['username'] ?></div>
             <div class="last">18:09</div>
         </div>
