@@ -79,6 +79,20 @@ html, body {
     -ms-user-select: none;
 }
 
+span.button{
+     border-color : #61B9DB;
+      border-style : solid;
+      height : 0;
+      overflow : hidden;
+      display : inline-block;
+      margin : 10px;
+      clear : both;
+    border-top-width : 17px;
+    border-bottom-width : 17px;
+    border-right-width : 20px;
+    border-right-color : #fff;
+}
+
 .back {
     position: absolute;
     width: 90px;
