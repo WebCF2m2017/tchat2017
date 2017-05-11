@@ -11,6 +11,7 @@ require_once 'db.class.php';
 
 $db = new DB(DB_HOST,DB_LOGIN,DB_PASS,DB_NAME); 
 
+
 // Si des données POST ont été envoyées
 if (!empty($_POST))
 {
@@ -45,8 +46,19 @@ if (!empty($_GET) && isset($_GET['getLastsMessage']))
 							INNER JOIN util u
 							ON u.idutil = m.util_idutil
 							ORDER BY id DESC LIMIT 0, 50');
-	// Affichage des X derniers messages en JSON
-	echo json_encode($lulu->fetchAll(PDO::FETCH_ASSOC), JSON_FORCE_OBJECT);
+	
+	// Tableau des émojis
+	$emojis = ['amazing', 'anger', 'exciting', 'money', 'super_man', 'what', 'unhappy', 'shame', 'shocked', 'scorn', 'haha', 'black_heart', 'nothing_to_say', 'horror', 'greedy', 'electric_shock'];
+
+	// Transformation des émojis contenu dans le texte(:anger:, :haha:, ..) en balise IMG
+	$data = $lulu->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($data as $key => $value)
+		foreach ($emojis as $emoji)
+			$data[$key]['texte'] = str_replace(":{$emoji}:", "<img src='images/$emoji.png' alt='$emoji'>", $data[$key]['texte']);
+
+	// Affichage des 50 derniers messages en JSON
+	echo json_encode($data, JSON_FORCE_OBJECT);
+
 }
 
 
