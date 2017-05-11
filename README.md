@@ -7,9 +7,19 @@ Cette première version basique sera le lancement de cet exercice collaboratif, 
 ## URL
 http://tchat.webdev-cf2m.be/
 
+# 2017/05/11
+
+- Augmentation du champs texte de 120 à 500 caractères (la table message)
+Effectuez cette commande en sql: 
+
+ALTER TABLE `message` CHANGE `texte` `texte` VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+- Les premiers icones sont actifs
+
 # 2017/05/03
 
 - Instructions dans le contrôleur frontal
+
 
 # création DB
 
@@ -74,6 +84,10 @@ ALTER TABLE `util`
 --
 ALTER TABLE `message`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- 500 caractères en varchar pour le champs texte de la table `message`
+--
+ALTER TABLE `message` CHANGE `texte` `texte` VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
 --
 -- AUTO_INCREMENT pour la table `util`
 --
