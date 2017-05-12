@@ -127,7 +127,11 @@ function getLastsMessage()
 			// Récéption des derniers méssage encodé en JSON
 			// On boucle chaque message pour l'envoyer a la fonction pushLastMessage
 			for (var i = (Object.keys(data).length-1); i >= 0; i--) {
-				pushLastMessage(data[i].texte, data[i].login, data[i].ladate);
+                            if(data[i].login==username){
+				pushLastMessageSelf(data[i].texte, data[i].login, data[i].ladate);
+                            }else{
+                                pushLastMessage(data[i].texte, data[i].login, data[i].ladate);
+                            }
 			}
 		}
 	}
@@ -137,6 +141,21 @@ function getLastsMessage()
 // Insertion du message
 
 function pushLastMessage(message, username, date)
+{	
+	// Ajout des balises HTML dans le DOM
+	chat.innerHTML += "<li class='self'>" + 
+	"<div class='avatar'><img src='images/avatar.png' draggable='false'/></div></div>" + 
+	"<div class='msg'>" +
+	"<p id='colorenvoie'>" + username + "</p>" +
+	"<p>" + message + "</p>" +
+	"<time>" + date + "</time>" + 
+	"</div>" +
+	"</li>";
+
+	// Scroll de la page vers le bas
+	window.scrollTo(0,document.body.scrollHeight + 100);
+}
+function pushLastMessageSelf(message, username, date)
 {	
 	// Ajout des balises HTML dans le DOM
 	chat.innerHTML += "<li class='other'>" + 
