@@ -165,7 +165,7 @@ function pushLastMessageSelf(message, username, date)
 	"<p>" + message + "</p>" +
 	"<time>" + date + "</time>" + 
 	"</div>" +
-	"</li>";
+	"</li>"; 
 
 	// Scroll de la page vers le bas
 	window.scrollTo(0,document.body.scrollHeight + 100);
@@ -181,6 +181,7 @@ function VerifNbMsg()
 	xhr.onreadystatechange = function() { 
 		if(xhr.readyState == 4 && xhr.status == 200)
 		{
+                    console.log(xhr.responseText);
 			if(xhr.responseText=="charge"){
             	getLastsMessage();
 			}	
