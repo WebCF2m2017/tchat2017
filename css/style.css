@@ -1,6 +1,6 @@
 
 
-#slid{
+/*#slid{
     margin-top: 130px;
 }
 .formulair{
@@ -61,7 +61,38 @@ html, body {
 ::selection{
   background: rgba(82,179,217,0.3);
   color: inherit;
+}*/
+
+th{
+	color:white;
 }
+
+#lo{
+	margin:975px 90px 0px 650px;
+	
+	display:inline-block;
+}
+#formulaire1{
+	margin:1020px 0px 0px 35px;
+
+	display:inline-block;
+}
+.w3-button {
+	width:150px;
+	height:50px;
+	}
+input{
+	height:40px;
+	width:150px;
+}
+form{
+	font-size:20px;
+}
+a{
+	text-decoration:none;
+}
+
+
 
 
 /* M E N U */

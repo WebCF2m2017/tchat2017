@@ -29,59 +29,39 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Se Connecter</title>
-
+        <meta charset="utf-8">
+      <!--  <title>Se Connecter</title>-->
+         
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+       <!-- <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Bitter|Lobster" rel="stylesheet">
-        	<script>
-			function init() {
-				document.getElementById('title').onmouseover = miseEnGras;
-				document.getElementById('title').onmouseout = normal;
-			}
-
-			function miseEnGras(event){ 
-				this.style.fontWeight="bold";
-				this.style.color="black"; 
-				}
-
-			function normal(event){ 
-				this.style.fontWeight="normal";
-				this.style.color="red";
-				}			
-		</script>
+        <link href="https://fonts.googleapis.com/css?family=Bitter|Lobster" rel="stylesheet">-->
+       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">  
     </head>
-    <body onload="init();">
-        <section id="slid">
-        <div id="title">
-             <h1>Se Connecter</h1> </div>
-        <div id="galeriep">
-             <h2><a href="?inscription">Inscription</a></h2>
-             <?php
+  
+   <body>
+    
+       <div id="lo">  
+           <form action="#">
+                Login:<br>
+               <input type="text" name="firstname">
+               <br>
+               Mot de pase:<br>
+              <input type="text" name="lastname">
+          </form>   
+      </div>
+       
+      <div id="formulaire1">
+		 <p><button class="w3-button w3-red"><a href="?accueil.php">Se connecter</a></button></p>
+		 <p><button class="w3-button w3-brown"><a href="?inscription.php">S'inscrire</a></button></p>
+      </div>    
+       <?php
              if(isset($dit)) echo "<h2>$dit</h2>";
-             ?>
-        </div>
-    <form action="" method="POST" name="connection">
-    <ul class="form-style-1">
-    <li>
-        <label>Username <span class="required">*</span></label>
-        <input type="text" name="clogin" class="field-long" placeholder=""/>
-    </li>
-    <li>
-        <label>PassWord <span class="required">*</span></label>
-        <input type="password" name="cmdp" class="field-long-pass"/>
-    </li>
-    <li>
-        <input type="submit" value="Se connecter" />
-    </li>
-    </ul>
-    </form>
+       ?>
 
         <?php
         if(isset($erreur)){ echo "<h3 >$erreur</h3>";}
         ?>
-            </section>
+            
     </body>
 </html>
