@@ -38,6 +38,12 @@ function init()
 	chat = document.querySelector('ol');
 	form = document.querySelector('form');
 
+
+	message.addEventListener('click', function(){
+		if (containerOpen)
+			openEmojiContainer()
+	});
+
 	// Event déclenché quand le formulaire est envoyé
 	form.addEventListener('submit', function(event) { event.preventDefault(); sendMessage(this) });
 
@@ -50,6 +56,14 @@ function init()
 
 function sendMessage(data)
 {
+	
+	// Si le message contient moins de 1 caractère on affiche un alert et on annule la fonction
+	if (message.value.length < 1)
+	{
+		alert('Votre message est vide!');
+		return false;
+	}
+
 	// Si le message contient plus de 500 caractère on affiche un alert et on annule la fonction
 	// Dans la base de donnée message, texte est un varchar(500) 
 	if(message.value.length >= 501)
