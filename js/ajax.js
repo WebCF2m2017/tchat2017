@@ -37,6 +37,22 @@ function init()
 	username = document.querySelector('div.name').innerHTML;
 	chat = document.querySelector('ol');
 	form = document.querySelector('form');
+	emojis = document.querySelector('div.emojis');
+	emoji = document.querySelectorAll('div.emoji-self')
+
+	// Event déclenché au click sur l'icone emoji (ouvre le panneau avec tous les emojis)
+	emojis.addEventListener('click', function(){ switchEmojiContainer() });
+	// Event déclenché au click sur l'input du message (ferme le panneau des emojis si ouvert)
+	message.addEventListener('click', function(){
+		if (containerOpen)
+			switchEmojiContainer()
+	});
+
+	// Boucle qui crée un evenement sur chaque div.emoji-self
+	for (var i = 0; i < emoji.length; i++) {
+		emoji[i].addEventListener('click', function(){ addEmoji(this) })
+	}
+
 
 	// Event déclenché quand le formulaire est envoyé
 	form.addEventListener('submit', function(event) { event.preventDefault(); sendMessage(this) });
@@ -50,6 +66,14 @@ function init()
 
 function sendMessage(data)
 {
+
+	// Si le message contient moins de 1 caractère on affiche un alert et on annule la fonction
+	if (message.value.length < 1)
+	{
+		alert('Votre message est vide!');
+		return false;
+	}
+
 	// Si le message contient plus de 500 caractère on affiche un alert et on annule la fonction
 	// Dans la base de donnée message, texte est un varchar(500) 
 	if(message.value.length >= 501)
@@ -150,7 +174,7 @@ function VerifNbMsg()
 }
 
 // Fonction qui ouvre/ferme la boite d'emoji
-function openEmojiContainer()
+function switchEmojiContainer()
 {
 	var emojiContainer = document.querySelector('.emoji-container');
 
@@ -169,7 +193,7 @@ function openEmojiContainer()
 // Fonction qui ajoute l'emoji dans le message
 function addEmoji(data)
 {
-	openEmojiContainer();
+	switchEmojiContainer();
 	// La variable data renvoi la div qui a la classe emoji-self, on parcour son enfant(la balise IMG)
 	message.value += ' :' + data.children[0].alt + ': ';
 	message.focus();
