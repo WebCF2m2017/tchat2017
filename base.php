@@ -23,52 +23,52 @@
         <input class="textarea" type="text" name="texte" placeholder="Type here!"/>
         <div class="emojis"></div>
         <div class="emoji-container">
-            <div class="emoji-self amazing" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/amazing.png" alt="amazing" title="amazing">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/anger.png" alt="anger" title="anger">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/exciting.png" alt="exciting" title="exciting">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/money.png" alt="money" title="money">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/super_man.png" alt="super_man" title="super_man">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/what.png" alt="what" title="what">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/unhappy.png" alt="unhappy" title="unhappy">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/shame.png" alt="shame" title="shame">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/shocked.png" alt="shocked" title="shocked">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/scorn.png" alt="scorn" title="scorn">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/haha.png" alt="haha" title="haha">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/black_heart.png" alt="black_heart" title="black_heart">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/nothing_to_say.png" alt="nothing_to_say" title="nothing_to_say">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/horror.png" alt="horror" title="horror">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/greedy.png" alt="greedy" title="greedy">
             </div>
-            <div class="emoji-self" onclick="addEmoji(this)">
+            <div class="emoji-self">
                 <img src="images/electric_shock.png" alt="electric_shock" title="electric_shock">
             </div>
         </div>

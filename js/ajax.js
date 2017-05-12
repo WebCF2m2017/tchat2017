@@ -38,6 +38,7 @@ function init()
 	chat = document.querySelector('ol');
 	form = document.querySelector('form');
 	emojis = document.querySelector('div.emojis');
+	emoji = document.querySelectorAll('div.emoji-self')
 
 	// Event déclenché au click sur l'icone emoji (ouvre le panneau avec tous les emojis)
 	emojis.addEventListener('click', function(){ switchEmojiContainer() });
@@ -46,6 +47,13 @@ function init()
 		if (containerOpen)
 			switchEmojiContainer()
 	});
+
+	// Boucle qui crée un evenement sur chaque div.emoji-self
+	for (var i = 0; i < emoji.length; i++) {
+		emoji[i].addEventListener('click', function(){ addEmoji(this) })
+	}
+
+
 	// Event déclenché quand le formulaire est envoyé
 	form.addEventListener('submit', function(event) { event.preventDefault(); sendMessage(this) });
 
