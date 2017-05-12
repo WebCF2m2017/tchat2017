@@ -81,12 +81,7 @@ function sendMessage(data)
 		alert('Votre message ne peut contenir plus de 500 caractères');
 		return false;
 	}
-        // si la chaîne est vide
-        if(message.value.length === 0)
-	{
-		alert('Votre message ne peut être vide!');
-		return false;
-	}
+
 
 	// Création des données POST à envoyer
 	data = "texte=" + message.value + "&user_id=" + user_id + "&username=" + username;
@@ -107,7 +102,9 @@ function sendMessage(data)
         		message.value = "";
         		// Appel de la fonction getLastsMessage
 				getLastsMessage();
-        	}
+        	}else{
+                    message.value = "";
+                }
     	}
 		
 	}
