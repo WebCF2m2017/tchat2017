@@ -21,7 +21,7 @@
     <!-- bouton d'envoie-->
     <form class="send">
         <input class="textarea" type="text" name="texte" placeholder="Type here!"/>
-        <div class="emojis" onclick="openEmojiContainer();"></div>
+        <div class="emojis"></div>
         <div class="emoji-container">
             <div class="emoji-self amazing" onclick="addEmoji(this)">
                 <img src="images/amazing.png" alt="amazing" title="amazing">
