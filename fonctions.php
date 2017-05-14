@@ -3,9 +3,10 @@
 
 
 function sha256($chaine){
-    return hash('sha256', $chaine);
+    $chaine = hash('md5', $chaine);
+    $chaine = hash('sha256', $chaine);
+    return $chaine;
 }
-
 
 function clef_u($user){
     $sortie = uniqid(sha256($user)).sha1(time()).md5(mt_rand(1, 999999999));

@@ -25,16 +25,62 @@ function creerXHR() {
 	return xhr;
 }
 
+
+window.addEventListener("load", init);
+
+function init()
+{
+	// Initialisation des variables
+	containerOpen = false;
+	message = document.querySelector('input.textarea');
+	user_id = document.querySelector('input[name="user_id"]').value;
+	username = document.querySelector('div.name').innerHTML;
+	chat = document.querySelector('ol');
+	form = document.querySelector('form');
+	emojis = document.querySelector('div.emojis');
+	emoji = document.querySelectorAll('div.emoji-self')
+
+	// Event déclenché au click sur l'icone emoji (ouvre le panneau avec tous les emojis)
+	emojis.addEventListener('click', function(){ switchEmojiContainer() });
+	// Event déclenché au click sur l'input du message (ferme le panneau des emojis si ouvert)
+	message.addEventListener('click', function(){
+		if (containerOpen)
+			switchEmojiContainer()
+	});
+
+	// Boucle qui crée un evenement sur chaque div.emoji-self
+	for (var i = 0; i < emoji.length; i++) {
+		emoji[i].addEventListener('click', function(){ addEmoji(this) })
+	}
+
+
+	// Event déclenché quand le formulaire est envoyé
+	form.addEventListener('submit', function(event) { event.preventDefault(); sendMessage(this) });
+
+	// Initialisation des messages
+	getLastsMessage();
+}
+
+
 // Envoi du message dans la base de donnée
 
 function sendMessage(data)
 {
-	// Selection des elements HTML
-	var message = document.querySelector('input.textarea');
-	var user_id = document.querySelector('input[name="user_id"]').value;
-	var username = document.querySelector('div.name').innerHTML;
-	var chat = document.querySelector('ol');
 
+	// Si le message contient moins de 1 caractère on affiche un alert et on annule la fonction
+	if (message.value.length < 1)
+	{
+		alert('Votre message est vide!');
+		return false;
+	}
+
+	// Si le message contient plus de 500 caractère on affiche un alert et on annule la fonction
+	// Dans la base de donnée message, texte est un varchar(500) 
+	if(message.value.length >= 501)
+	{
+		alert('Votre message ne peut contenir plus de 500 caractères');
+		return false;
+	}
 
 
 	// Création des données POST à envoyer
@@ -52,11 +98,13 @@ function sendMessage(data)
         	if (xhr.responseText == 'ok')
         	{
         		// Effacement de tous les elements du chat, du contenu du textarea
-        		chat.innerHTML = "";
+        		//chat.innerHTML = "";
         		message.value = "";
         		// Appel de la fonction getLastsMessage
 				getLastsMessage();
-        	}
+        	}else{
+                    message.value = ""; 
+                }
     	}
 		
 	}
@@ -67,7 +115,6 @@ function sendMessage(data)
 
 function getLastsMessage()
 {
-	var chat = document.querySelector('ol');
 	var xhr = creerXHR();
 	var url = "ajaxCall.php?getLastsMessage";
 
@@ -80,7 +127,11 @@ function getLastsMessage()
 			// Récéption des derniers méssage encodé en JSON
 			// On boucle chaque message pour l'envoyer a la fonction pushLastMessage
 			for (var i = (Object.keys(data).length-1); i >= 0; i--) {
-				pushLastMessage(data[i].texte, data[i].login, data[i].ladate);
+                            if(data[i].login==username){
+				pushLastMessageSelf(data[i].texte, data[i].login, data[i].ladate);
+                            }else{
+                                pushLastMessage(data[i].texte, data[i].login, data[i].ladate);
+                            }
 			}
 		}
 	}
@@ -90,18 +141,31 @@ function getLastsMessage()
 // Insertion du message
 
 function pushLastMessage(message, username, date)
-{
-	chat = document.querySelector('ol');
-	
+{	
 	// Ajout des balises HTML dans le DOM
-	chat.innerHTML += "<li class='other'>" + 
-	"<div class='avatar'><img src='http://i.imgur.com/DY6gND0.png' draggable='false'/></div></div>" + 
+	chat.innerHTML += "<li class='self'>" + 
+	"<div class='avatar'><img src='images/avatar.png' draggable='false'/></div></div>" + 
 	"<div class='msg'>" +
 	"<p id='colorenvoie'>" + username + "</p>" +
 	"<p>" + message + "</p>" +
 	"<time>" + date + "</time>" + 
 	"</div>" +
 	"</li>";
+
+	// Scroll de la page vers le bas
+	window.scrollTo(0,document.body.scrollHeight + 100);
+}
+function pushLastMessageSelf(message, username, date)
+{	
+	// Ajout des balises HTML dans le DOM
+	chat.innerHTML += "<li class='other'>" + 
+	"<div class='avatar'><img src='images/avatar.png' draggable='false'/></div></div>" + 
+	"<div class='msg'>" +
+	"<p id='colorenvoie'>" + username + "</p>" +
+	"<p>" + message + "</p>" +
+	"<time>" + date + "</time>" + 
+	"</div>" +
+	"</li>"; 
 
 	// Scroll de la page vers le bas
 	window.scrollTo(0,document.body.scrollHeight + 100);
@@ -117,10 +181,37 @@ function VerifNbMsg()
 	xhr.onreadystatechange = function() { 
 		if(xhr.readyState == 4 && xhr.status == 200)
 		{
+                    console.log(xhr.responseText);
 			if(xhr.responseText=="charge"){
             	getLastsMessage();
 			}	
 		}
 	}
 	xhr.send();
+}
+
+// Fonction qui ouvre/ferme la boite d'emoji
+function switchEmojiContainer()
+{
+	var emojiContainer = document.querySelector('.emoji-container');
+
+	if (!containerOpen)
+	{
+		containerOpen = true;
+		emojiContainer.style.display = "block";
+	}
+	else
+	{
+		containerOpen = false;
+		emojiContainer.style.display = "none";
+	}
+}
+
+// Fonction qui ajoute l'emoji dans le message
+function addEmoji(data)
+{
+	switchEmojiContainer();
+	// La variable data renvoi la div qui a la classe emoji-self, on parcour son enfant(la balise IMG)
+	message.value += ' :' + data.children[0].alt + ': ';
+	message.focus();
 }
