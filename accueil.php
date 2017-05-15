@@ -7,7 +7,7 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     
     if($login){
          
-        $recup_util = $db->query("SELECT u.idutil, u.login, u.actif FROM util u WHERE u.login ='$login' AND u.mdp ='$mdp'");
+        $recup_util = $db->query("SELECT u.idutil, u.login, u.actif, u.mail FROM util u WHERE u.login ='$login' AND u.mdp ='$mdp'");
 
         if(!empty($recup_util)){
            // si l'utilisateur existe mais est inactif
@@ -17,6 +17,7 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
             $_SESSION['clef_de_session']= session_id();
             $_SESSION['username'] = $recup_util[0]['login'];
             $_SESSION['user_id'] = $recup_util[0]['idutil'];
+            $_SESSION['mail'] = $recup_util[0]['mail'];
 
             
             header("Location: ./");
