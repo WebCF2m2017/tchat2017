@@ -1,7 +1,5 @@
 
-
 #slid{
-
     margin-top: 130px;
 }
 .formulair{
@@ -40,7 +38,7 @@ input{
     height: 30px;
     width: 185px;
     margin:11px 0px 15px 0px;
-    border-radius: 7px 0px;   
+    border-radius: 7px 0px;
 }
 h3{
     text-align: center;
@@ -68,15 +66,32 @@ th{
 	color:white;
 }
 
-#lo{
-	margin:975px 90px 0px 650px;
-	
-	display:inline-block;
+body{
+    background-image: url(imag/2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
-#formulaire1{
-	margin:1020px 0px 0px 35px;
-
-	display:inline-block;
+#container {
+    width: 350px;
+    height: 200px;
+    margin:-95px;
+    position: fixed;
+    bottom: 100px;
+    margin-left: 175px;
+    left: 25%;
+}
+#lo{
+       float: left;
+}
+#lili{
+      
+      text-decoration:none;
+        text-align: center;
+        height: 50px;   
+        width: 130px;
+        float: right;
 }
 .w3-button {
 	width:150px;
@@ -89,8 +104,10 @@ input{
 form{
 	font-size:20px;
 }
-a{
-	text-decoration:none;
+.bobo{
+    height: 60px;
+    width: 100px;
+        
 }
 
 
@@ -240,7 +257,6 @@ span.button{
     box-shadow: -1px 2px 0px #D4D4D4;
 }
 .other:before {
-    content: "";
     position: relative;
     top: 0px;
     right: 0px;
@@ -265,7 +281,6 @@ span.button{
     order: 2;
 }
 .self .avatar:after {
-    content: "";
     position: relative;
     display: inline-block;
     bottom: 19px;
@@ -284,6 +299,8 @@ span.button{
     padding: 10px;
     border-radius: 2px;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.07);
+    margin: 1.5em;
+
 }
 .msg p {
     font-size: 0.8rem;
@@ -336,7 +353,7 @@ span.button{
     font-family: FontAwesome;
     display: inline-block;
     margin-right: 4px;
-    
+
 }
 
 .emoji{
@@ -462,6 +479,7 @@ form.send {
     font-family: 'Bitter', serif;
     border: 0;
 }
+
 
 .emoji-container {
     position: fixed;
