@@ -40,11 +40,12 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
        <!-- <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bitter|Lobster" rel="stylesheet">-->
-      
+
     </head>
   
    <body>
     
+
        <div id="container">  
            <form action="#">
                <div id="lo">
@@ -70,8 +71,9 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
         <?php
         if(isset($erreur)){ echo "<h3 >$erreur</h3>";}
         ?>
+
       </div>
-       
+
             
     </body>
 </html>

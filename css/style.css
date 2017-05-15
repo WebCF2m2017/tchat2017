@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 
-
-/*#slid{
-=======
 #slid{
->>>>>>> b24d3b74c88371462d1f9bf2affcfc36b104b91d
     margin-top: 130px;
 }
 .formulair{
@@ -70,6 +65,7 @@ html, body {
 th{
 	color:white;
 }
+
 body{
     background-image: url(imag/2.jpg);
     background-repeat: no-repeat;
