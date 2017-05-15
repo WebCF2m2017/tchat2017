@@ -39,7 +39,7 @@ input{
     height: 30px;
     width: 185px;
     margin:11px 0px 15px 0px;
-    border-radius: 7px 0px;   
+    border-radius: 7px 0px;
 }
 h3{
     text-align: center;
@@ -238,6 +238,7 @@ html, body {
     padding: 10px;
     border-radius: 2px;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.07);
+    margin: 1.5em;
 }
 .msg p {
     font-size: 0.8rem;
@@ -285,7 +286,7 @@ html, body {
     font-family: FontAwesome;
     display: inline-block;
     margin-right: 4px;
-    
+
 }
 
 emoji{
