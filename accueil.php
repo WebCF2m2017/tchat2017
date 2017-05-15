@@ -1,5 +1,5 @@
 <?php
-
+       
 if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     $login = htmlspecialchars(strip_tags(trim($_POST['clogin'])),ENT_QUOTES);
     $mdp = sha256(trim($_POST['cmdp']));
@@ -37,17 +37,14 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
       <!--  <title>Se Connecter</title>-->
          
         <link rel="stylesheet" type="text/css" href="css/style.css">
-       <!-- <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Bitter|Lobster" rel="stylesheet">-->
-
+       
     </head>
   
    <body>
     
 
        <div id="container">  
-           <form action="#">
+           <form action="" method="POST" name="connection">
                <div id="lo">
                 Login:<br>
                <input type="text" name="clogin">
@@ -55,14 +52,15 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
                Mot de pase:<br>
                <input type="password" name="cmdp">
                </div>
-          </form>
+          
            <div id="lili">
            
-           <a href="?accueil"><button class="bobo">Se connecter</button></a><br/>
+               <button class="bobo" type="submit">Se connecter</button></a><br/>
            <br/>
            <a href="?inscription"><button class="bobo">S'inscrire</button></a>
+           
        </div>
-       
+       </form>
    
        <?php
              if(isset($dit)) echo "<h2>$dit</h2>";
