@@ -44,7 +44,7 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     
 
        <div id="container">  
-           <form action="#">
+           <form action="" method="POST" name="connection">
                <div id="lo">
                 Login:<br>
                <input type="text" name="clogin">
@@ -52,14 +52,15 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
                Mot de pase:<br>
                <input type="password" name="cmdp">
                </div>
-          </form>
+          
            <div id="lili">
            
-           <a href="?accueil"><button class="bobo">Se connecter</button></a><br/>
+               <button class="bobo" type="submit">Se connecter</button></a><br/>
            <br/>
            <a href="?inscription"><button class="bobo">S'inscrire</button></a>
+           
        </div>
-       
+       </form>
    
        <?php
              if(isset($dit)) echo "<h2>$dit</h2>";
