@@ -55,7 +55,7 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
           
            <div id="lili">
            
-               <button class="bobo" type="submit">Se connecter</button></a><br/>
+               <button class="bobo" type="submit">Se connecter</button><br/>
            <br/>
            <a href="?inscription"><button class="bobo">S'inscrire</button></a>
            
