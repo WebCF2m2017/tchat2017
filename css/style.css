@@ -250,9 +250,9 @@ span.button{
     padding: 10px;
     border-radius: 2px;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.07);
-    margin: 1.5em;
+    margin: 0.5em;
     position: relative;
-margin-left: 3em;
+    margin-left: 3em;
 }
 
 .msg p {
