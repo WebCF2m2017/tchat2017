@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 if(!strstr($_SERVER['PHP_SELF'],"index.php")){
     header("Location: ./");
@@ -60,45 +60,170 @@ if(isset($_POST['lelogin'])){
 } 
     
 ?>
+-->
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Inscription</title>
-        
-         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bitter|Lobster" rel="stylesheet">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <style type="text/css">
+
+            body{
+              background-color: #263248;
+            }
+            
+            #inscriptionf{
+               height: 1080px;
+                
+                background-image: url("images/inscription.jpg");
+                background-size:100%;
+                height: 140px;
+                display:block;
+                padding:0 !important;
+                margin:0;
+                
+            }
+            .borderless table {
+                border-top-style: none;
+                border-left-style: none;
+                border-right-style: none;
+                border-bottom-style: none;
+            }
+            .kappa{
+              position: fixed;
+              padding-top: 20%;
+            }
+            .hehe{
+              background-color:#F8981D ;
+            }
+            p{
+              color:#263248;
+              font-size: 1.2em;
+            }
+            .huhu{
+              color:#263248;
+            }
+            .col-md-offset-4{
+              margin-top:-4%;
+            }
+
+
+
+        </style>
     </head>
     <body>
-        <hr/>
-        <div class="formulair">
-            <h1>Inscription</h1>
+    
+    <div class="container">
+    <div id="inscriptionf">
+   
+    <div class="kappa">
             <?php
             if(isset($mail_confimation)){
             ?>
-            <h3>Vérifiez votre mail, vous allez recevoir un mail de confirmation!!!</h3>
-            <a href="./"><button>Retour a l'accueil</button></a>
+        <div class="container">
+         <div class="row">
+          <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
+               <table class="table table borderless ">
+             <tr><td>
+                   <div class="btn-group btn-group-justified">
+                      <a href="./" class="btn btn-blue boutonn"><i class="fa fa-home boutonn huhu" aria-hidden="true"></i><br /><p>Home</p></a>
+                   </div>
+             </td></tr>
+               </table>
+           </div>
+          </div>
+         </div>
             <?php
             }else{
             ?>
-            <a href="./"><button>Retour a l'accueil</button></a>
-            <form action="" method="POST" name="inscription">
-                <section class="put">                 
-                <input type="text" name='lelogin' placeholder="Votre login" <?php if(isset($_POST['lelogin'])) echo " value='{$_POST['lelogin']}' " ?> required />
+       <div class="container">
+         <div class="row">
+         <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
+          
+          <table class="table table borderless ">
+            <tr><td>
+                  <div class="btn-group btn-group-justified hehe">
+                  <a href="./" class="btn btn-blue boutonn hehe"><i class="fa fa-home boutonn huhu" aria-hidden="true"></i><br /><p>Home</p></a>
+            </div>
+            </td></tr>
+          </table>
+          </div>
+        </div>
+      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
+ <table class="table table borderless ">
+          <form action="" method="POST" name="inscription" class="form-inline">
+            <div class="form-group hehe ">
+              <tr><td>
+              <label for="login">Login:</label>
+              </td><td>
+              <input type="text" name='lelogin' class="form-control" placeholder="Votre login" <?php if(isset($_POST['lelogin'])) echo " value='{$_POST['lelogin']}' " ?> required />
                <?php if(isset($erreur_login)) echo $erreur_login ?>
-                <br/>
-                <input type="password" name='lepass_a' placeholder="Votre mot de passe" required /><?php if(isset($erreur_mdp)) echo $erreur_mdp ?><br/>
-                <input type="password" name='lepass_b' placeholder="Confirmez votre mot de passe" required /><br/>
-                <input type="email" name='lemail' <?php if(isset($_POST['lemail'])) echo " value='{$_POST['lemail']}' " ?> placeholder="Votre adresse mail" required /><?php if(isset($erreur_mail)) echo $erreur_mail ?><br/>
-                
-                <input type="submit" value="S'inscrire" />
-                </section> 
-            </form>
+              </td></tr>
+            </div>
+  <br/>
+     <div class="form-group hehe">
+               <tr><td>
+         <label for="pwd">Password:</label>
+               </td><td>
+    <input type="password" class="form-control" id="pwd" name='lepass_a' placeholder="Votre mot de passe" required /><?php if(isset($erreur_mdp)) echo $erreur_mdp ?>
+    <br/>
+                </td></tr>
+  </div>
+  <br/>
+
+  <div class="form-group hehe">
+  <tr><td>
+    <label for="email">Confirm password:</label>
+  </td><td>
+    <input type="password" class="form-control" id="pwd" name='lepass_b' placeholder="Confirmez votre mot de passe" required />
+  </td></tr>
+  </div>
+
+<br/>
+
+          <div class="form-group hehe">
+            <tr><td>
+        <label for="email">Email:</label>
+            </td><td>
+        <input type="email" name='lemail' class="form-control" <?php if(isset($_POST['lemail'])) echo " value='{$_POST['lemail']}' " ?> placeholder="Votre adresse mail" required /><?php if(isset($erreur_mail)) echo $erreur_mail ?>
+<br/>
+            </td></tr>
+  </table>
+          </div>
+<br/>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
+        <table class="table table borderless ">
+          <div class="form-group hehe">
+            <div class="checkbox">
+                           <tr><td>
+               <div class="btn-group btn-group-justified">
+                      <a onclick="document.forms[0].submit();return false;" target="_blank" class="btn btn-blue boutonn"><i class="fa fa-sign-in huhu" aria-hidden="true"></i><br /><p>Sign-Up!</p></a>
+               </div>
+                          </td></tr>
+            </div>
+          </div>
+
+</form>
+        </table>
             <?php
             }
             ?>
-        </div>
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+        
     </body>
 </html>
