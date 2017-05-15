@@ -66,6 +66,9 @@ html, body {
 th{
 	color:white;
 }
+body{
+    background-image: url(../imag/2.jpg);
+}
 
 #lo{
 	margin:975px 90px 0px 650px;

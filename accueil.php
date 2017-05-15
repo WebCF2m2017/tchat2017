@@ -44,10 +44,10 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
        <div id="lo">  
            <form action="#">
                 Login:<br>
-               <input type="text" name="firstname">
+               <input type="text" name="clogin">
                <br>
                Mot de pase:<br>
-              <input type="text" name="lastname">
+              <input type="text" name="cmdp">
           </form>   
       </div>
        
