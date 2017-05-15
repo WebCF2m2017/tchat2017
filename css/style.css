@@ -226,6 +226,9 @@ span.button{
     order: 1;
     border-bottom-right-radius: 0px;
     box-shadow: 1px 2px 0px #D4D4D4;
+    margin: 0.5em;
+    position: relative;
+    margin-right: 4em;
 }
 .self .avatar {
     order: 2;
