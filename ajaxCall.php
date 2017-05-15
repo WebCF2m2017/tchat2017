@@ -42,7 +42,7 @@ if (!empty($_POST)) {
 // Si des données GET ont été envoyées
 if (!empty($_GET) && isset($_GET['getLastsMessage'])) {
     // Réception des X derniers messages dans la base de donnée
-    $lulu = $db->db->query('SELECT m.texte, m.ladate, m.util_idutil, u.idutil, u.login FROM message m
+    $lulu = $db->db->query('SELECT m.texte, m.ladate, m.util_idutil, u.idutil, u.login, u.mail FROM message m
 							INNER JOIN util u
 							ON u.idutil = m.util_idutil
 							ORDER BY id DESC LIMIT 0, 50');

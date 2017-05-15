@@ -98,12 +98,12 @@ function sendMessage(data)
         	if (xhr.responseText == 'ok')
         	{
         		// Effacement de tous les elements du chat, du contenu du textarea
-        		//chat.innerHTML = "";
+        		chat.innerHTML = "";
         		message.value = "";
         		// Appel de la fonction getLastsMessage
 				getLastsMessage();
         	}else{
-                    message.value = ""; 
+                    message.value = "";
                 }
     	}
 		
@@ -128,9 +128,9 @@ function getLastsMessage()
 			// On boucle chaque message pour l'envoyer a la fonction pushLastMessage
 			for (var i = (Object.keys(data).length-1); i >= 0; i--) {
                             if(data[i].login==username){
-				pushLastMessageSelf(data[i].texte, data[i].login, data[i].ladate);
+				pushLastMessageSelf(data[i].texte, data[i].login, data[i].ladate, data[i].mail);
                             }else{
-                                pushLastMessage(data[i].texte, data[i].login, data[i].ladate);
+                                pushLastMessage(data[i].texte, data[i].login, data[i].ladate, data[i].mail);
                             }
 			}
 		}
@@ -140,11 +140,11 @@ function getLastsMessage()
 
 // Insertion du message
 
-function pushLastMessage(message, username, date)
+function pushLastMessage(message, username, date, mail)
 {	
 	// Ajout des balises HTML dans le DOM
 	chat.innerHTML += "<li class='self'>" + 
-	"<div class='avatar'><img src='images/avatar.png' draggable='false'/></div></div>" + 
+	"<div class='avatar'><img src='https://api.adorable.io/avatars/40/"+mail+".png' draggable='false'/></div></div>" + 
 	"<div class='msg'>" +
 	"<p id='colorenvoie'>" + username + "</p>" +
 	"<p>" + message + "</p>" +
@@ -155,11 +155,11 @@ function pushLastMessage(message, username, date)
 	// Scroll de la page vers le bas
 	window.scrollTo(0,document.body.scrollHeight + 100);
 }
-function pushLastMessageSelf(message, username, date)
+function pushLastMessageSelf(message, username, date, mail)
 {	
 	// Ajout des balises HTML dans le DOM
 	chat.innerHTML += "<li class='other'>" + 
-	"<div class='avatar'><img src='images/avatar.png' draggable='false'/></div></div>" + 
+	"<div class='avatar'><img src='https://api.adorable.io/avatars/40/"+mail+".png' draggable='false'/></div></div>" + 
 	"<div class='msg'>" +
 	"<p id='colorenvoie'>" + username + "</p>" +
 	"<p>" + message + "</p>" +
