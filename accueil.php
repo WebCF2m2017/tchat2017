@@ -1,5 +1,5 @@
 <?php
-
+       
 if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     $login = htmlspecialchars(strip_tags(trim($_POST['clogin'])),ENT_QUOTES);
     $mdp = sha256(trim($_POST['cmdp']));
@@ -45,12 +45,10 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
 				document.getElementById('title').onmouseover = miseEnGras;
 				document.getElementById('title').onmouseout = normal;
 			}
-
 			function miseEnGras(event){ 
 				this.style.fontWeight="bold";
 				this.style.color="black"; 
 				}
-
 			function normal(event){ 
 				this.style.fontWeight="normal";
 				this.style.color="red";
