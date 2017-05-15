@@ -206,7 +206,6 @@ span.button{
     box-shadow: -1px 2px 0px #D4D4D4;
 }
 .other:before {
-    content: "";
     position: relative;
     top: 0px;
     right: 0px;
@@ -231,7 +230,6 @@ span.button{
     order: 2;
 }
 .self .avatar:after {
-    content: "";
     position: relative;
     display: inline-block;
     bottom: 19px;
