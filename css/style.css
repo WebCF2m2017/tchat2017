@@ -67,18 +67,31 @@ th{
 	color:white;
 }
 body{
-    background-image: url(../imag/2.jpg);
+    background-image: url(imag/2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
-
+#container {
+    width: 350px;
+    height: 200px;
+    margin:-95px;
+    position: fixed;
+    bottom: 100px;
+    margin-left: 175px;
+    left: 25%;
+}
 #lo{
-	margin:975px 90px 0px 650px;
-	
-	display:inline-block;
+       float: left;
 }
-#formulaire1{
-	margin:1020px 0px 0px 35px;
-
-	display:inline-block;
+#lili{
+      
+      text-decoration:none;
+        text-align: center;
+        height: 50px;   
+        width: 130px;
+        float: right;
 }
 .w3-button {
 	width:150px;
@@ -91,8 +104,10 @@ input{
 form{
 	font-size:20px;
 }
-a{
-	text-decoration:none;
+.bobo{
+    height: 60px;
+    width: 100px;
+        
 }
 
 

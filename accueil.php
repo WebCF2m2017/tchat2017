@@ -36,25 +36,29 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
        <!-- <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bitter|Lobster" rel="stylesheet">-->
-       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">  
+      
     </head>
   
    <body>
     
-       <div id="lo">  
+       <div id="container">  
            <form action="#">
+               <div id="lo">
                 Login:<br>
                <input type="text" name="clogin">
                <br>
                Mot de pase:<br>
-              <input type="text" name="cmdp">
-          </form>   
-      </div>
+               <input type="password" name="cmdp">
+               </div>
+          </form>
+           <div id="lili">
+           
+           <a href="?accueil"><button class="bobo">Se connecter</button></a><br/>
+           <br/>
+           <a href="?inscription"><button class="bobo">S'inscrire</button></a>
+       </div>
        
-      <div id="formulaire1">
-		 <p><button class="w3-button w3-red"><a href="?accueil.php">Se connecter</a></button></p>
-		 <p><button class="w3-button w3-brown"><a href="?inscription.php">S'inscrire</a></button></p>
-      </div>    
+   
        <?php
              if(isset($dit)) echo "<h2>$dit</h2>";
        ?>
@@ -62,6 +66,8 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
         <?php
         if(isset($erreur)){ echo "<h3 >$erreur</h3>";}
         ?>
+      </div>
+       
             
     </body>
 </html>
