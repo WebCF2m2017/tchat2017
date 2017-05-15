@@ -251,7 +251,7 @@ span.button{
     border-radius: 2px;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.07);
     margin: 1.5em;
-    
+
 }
 .msg p {
     font-size: 0.8rem;
@@ -430,7 +430,7 @@ form.send {
     font-family: 'Bitter', serif;
     border: 0;
 }
-<<<<<<< HEAD
+
 
 .emoji-container {
     position: fixed;
@@ -453,5 +453,3 @@ form.send {
 }
 
 .emoji-self img { width: 20px; height: 20px; }
-=======
->>>>>>> 9267ed0d0e21894c9ae43e0ccc5fbd41072abd90
