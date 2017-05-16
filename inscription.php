@@ -118,6 +118,7 @@ if(isset($_POST['lelogin'])){
     </head>
     <body>
     
+    
     <div class="container">
     <div id="inscriptionf">
    
@@ -131,7 +132,8 @@ if(isset($_POST['lelogin'])){
                <table class="table table borderless ">
              <tr><td>
                    <div class="btn-group btn-group-justified">
-                      <a href="./" class="btn btn-blue boutonn"><i class="fa fa-home boutonn huhu" aria-hidden="true"></i><br /><p>Home</p></a>
+                      <a href="./" class="btn btn-blue boutonn"><i class="fa fa-home boutonn huhu" aria-hidden="true"></i><br /><p><h3>Vérifiez votre mail,<br/> vous allez recevoir un mail<br/> de confirmation!!!</h3>
+               </p></a>
                    </div>
              </td></tr>
                </table>
