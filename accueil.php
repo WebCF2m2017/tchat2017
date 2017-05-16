@@ -55,9 +55,9 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
           
            <div id="lili">
            
-               <button class="bobo" ONCLICK='this.submit();'>Se connecter</button><br/>
+               <button class="bobo" type="submit">Se connecter</button><br/>
            <br/>
-            <button class="bobo" onclick="document.location.href='?inscription;';">S'inscrire</button>
+           <a href="?inscription"><button class="bobo" type="button">S'inscrire</button></a>
            
        </div>
        </form>
