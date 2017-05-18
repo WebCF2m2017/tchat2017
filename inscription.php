@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 if(!strstr($_SERVER['PHP_SELF'],"index.php")){
     header("Location: ./");
@@ -13,14 +13,17 @@ if(isset($_POST['lelogin'])){
             $lemdp = trim($_POST['lepass_a']);
             $lemdp = sha256($lemdp);
             $lemail = filter_var(trim($_POST['lemail']), FILTER_VALIDATE_EMAIL);
+
             
-            if(!$lelogin||!$lemail|| $lemdp=='e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'){
-                
-                header("Location: http://how.icryeverytime.com");
-                exit();
-            }else{
-                
-                
+              
+                if(empty($lelogin)||empty($lemail)||empty($lemdp)){
+                  header("Location: http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                  exit();
+                }elseif(!$lelogin||!$lemail|| $lemdp=='e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'){
+                  header("Location: http://how.icryeverytime.com");
+                  exit();
+                }else{
+
                 // création de la clef
                 $clef = clef_u($lelogin);
                 
