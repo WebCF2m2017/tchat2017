@@ -21,9 +21,5 @@ if($recup_sql){
         <title>Activation de votre compte</title>
     </head>
     <body>
-        <hr/>
-        <div>
-            
-        </div>
     </body>
 </html>

@@ -56,7 +56,10 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
             }
             .kappa{
               position: fixed;
-              padding-top: 45%;
+            }
+            .row{
+              position: fixed;
+              bottom:10%;
             }
             .borderless table {
                 border-top-style: none;
@@ -64,7 +67,6 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
                 border-right-style: none;
                 border-bottom-style: none;
             }
-
             .hehe{
               display: block;
               background-color:#F8981D ;
@@ -80,9 +82,6 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
               width: 50%;
             }
 
-
-
-
         </style>
 
 
@@ -90,10 +89,11 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
   
    <body>
       <div id="container">
+
        <div class="kappa"> 
        <div class="row">
           <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
-         
+        
           <table class="table table borderless ">
            <form action="" method="POST" name="connection" class="form-inline">
            <div class="form-group hehe">
@@ -132,7 +132,7 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
         ?>
         </div>
       </div>
-    </div>
+    
     </div>
             
     </body>
