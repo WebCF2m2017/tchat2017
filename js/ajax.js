@@ -98,7 +98,7 @@ function sendMessage(data)
         	if (xhr.responseText == 'ok')
         	{
         		// Effacement de tous les elements du chat, du contenu du textarea
-        		chat.innerHTML = "";
+        		// chat.innerHTML = "";
         		message.value = "";
         		// Appel de la fonction getLastsMessage
 				getLastsMessage();

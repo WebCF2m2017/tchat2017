@@ -2,9 +2,9 @@
     <html>
     <head>
       <title></title>
-      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="css/style.min.css">
       <meta charset="utf-8">
-      <script src="js/ajax.js"></script>
+      <script src="js/ajax.min.js"></script>
     </head>
     <body>
     <!-- bordure du haut avec le nom des utilisateur connecté-->
