@@ -96,7 +96,7 @@ if(isset($_POST['lelogin'])){
             }
             .kappa{
               position: fixed;
-              padding-top: 20%;
+              bottom: 10%;
             }
             .hehe{
               background-color:#F8981D ;
@@ -128,7 +128,6 @@ if(isset($_POST['lelogin'])){
             ?>
         <div class="container">
          <div class="row">
-          <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
                <table class="table table borderless ">
              <tr><td>
                    <div class="btn-group btn-group-justified">
@@ -145,7 +144,7 @@ if(isset($_POST['lelogin'])){
             ?>
        <div class="container">
          <div class="row">
-         <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
+         <div class="col-md-4 col-md-offset-4  hehe">
           
           <table class="table table borderless ">
             <tr><td>
@@ -159,7 +158,7 @@ if(isset($_POST['lelogin'])){
       </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
+    <div class="col-md-4 col-md-offset-4  hehe">
  <table class="table table borderless ">
           <form action="" method="POST" name="inscription" class="form-inline">
             <div class="form-group hehe ">
@@ -203,7 +202,7 @@ if(isset($_POST['lelogin'])){
 <br/>
   <div class="container">
    <div class="row">
-    <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
+    <div class="col-md-4 col-md-offset-4  hehe">
         <table class="table table borderless ">
           <div class="form-group hehe">
             <div class="checkbox">
