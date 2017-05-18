@@ -1,5 +1,5 @@
 <?php
-
+       
 if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
     $login = htmlspecialchars(strip_tags(trim($_POST['clogin'])),ENT_QUOTES);
     $mdp = sha256(trim($_POST['cmdp']));
@@ -33,59 +33,107 @@ if(isset($_POST['clogin'])&&isset($_POST['cmdp'])){
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Se Connecter</title>
+        <meta charset="utf-8">
+      <!--  <title>Se Connecter</title>-->
+         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Bitter|Lobster" rel="stylesheet">
-        	<script>
-			function init() {
-				document.getElementById('title').onmouseover = miseEnGras;
-				document.getElementById('title').onmouseout = normal;
-			}
+         <style type="text/css">
 
-			function miseEnGras(event){ 
-				this.style.fontWeight="bold";
-				this.style.color="black"; 
-				}
+            body{
+              background-color: #263248;
+            }
+            
+            #container{
+                height: 1080px;
+                background-image: url("images/background.jpg");
+                background-size:100%;
+                display:block;
+                padding:0 !important;
+                background-repeat: no-repeat;
+                margin:0;
+                
+            }
+            .kappa{
+              position: fixed;
+              padding-top: 45%;
+            }
+            .borderless table {
+                border-top-style: none;
+                border-left-style: none;
+                border-right-style: none;
+                border-bottom-style: none;
+            }
 
-			function normal(event){ 
-				this.style.fontWeight="normal";
-				this.style.color="red";
-				}			
-		</script>
-    </head>
-    <body onload="init();">
-        <section id="slid">
-        <div id="title">
-             <h1>Se Connecter</h1> </div>
-        <div id="galeriep">
-             <h2><a href="?inscription">Inscription</a></h2>
-             <?php
+            .hehe{
+              display: block;
+              background-color:#F8981D ;
+            }
+            p{
+              color:#263248;
+              font-size: 1.2em;
+            }
+            .huhu{
+              color:#263248;
+            }
+            td, tr{
+              width: 50%;
+            }
+
+
+
+
+        </style>
+
+
+    </head> 
+  
+   <body>
+      <div id="container">
+       <div class="kappa"> 
+       <div class="row">
+          <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
+         
+          <table class="table table borderless ">
+           <form action="" method="POST" name="connection" class="form-inline">
+           <div class="form-group hehe">
+           
+               <tr><td>
+              <label for="login">Login:</label>
+               <br />
+
+               <input type="text" class="form-control" name="clogin">
+                </td><td>
+               <div class="btn-group btn-group-justified">
+               <a onclick="document.forms[0].submit();return false;" target="_blank" class="btn btn-blue boutonn sizer"><i class="fa fa-sign-in huhu" aria-hidden="true"></i><br /><p>Login!</p></a>
+               </div>
+               </td></tr>
+
+               <tr><td>
+                
+               <label for="pwd">Password:</label>
+                <br />
+               <input type="password" class="form-control" name="cmdp">
+                </td><td>
+              <div class="btn-group btn-group-justified">
+              <a href="?inscription" class="btn btn-blue boutonn"><i class="fa fa-home boutonn huhu sizer" aria-hidden="true"></i><br /><p>Sign-Up!</p></a>
+             </div>
+                </td></tr>
+
+
+       </form>
+    </div>
+       <?php
              if(isset($dit)) echo "<h2>$dit</h2>";
-             ?>
-        </div>
-    <form action="" method="POST" name="connection">
-    <ul class="form-style-1">
-    <li>
-        <label>Username <span class="required">*</span></label>
-        <input type="text" name="clogin" class="field-long" placeholder=""/>
-    </li>
-    <li>
-        <label>PassWord <span class="required">*</span></label>
-        <input type="password" name="cmdp" class="field-long-pass"/>
-    </li>
-    <li>
-        <input type="submit" value="Se connecter" />
-    </li>
-    </ul>
-    </form>
+       ?>
 
         <?php
         if(isset($erreur)){ echo "<h3 >$erreur</h3>";}
         ?>
-            </section>
+        </div>
+      </div>
+    </div>
+    </div>
+            
     </body>
 </html>

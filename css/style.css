@@ -1,65 +1,52 @@
-#slid{
-    margin-top: 130px;
-}
-.formulair{
-   margin-top: 130px;
-}
-#title{
-    text-align: center;
-    font-family: 'Bitter', serif;
-    font-family: 'Lobster', cursive;
-}
-#galeriep{
-    text-align: center;
-}
-a{
-    text-decoration: none;
-    text-align: center;
-    color: rgba(82,179,217,0.9);
-}
-form {
-    margin-left: 505px;
-    background-color:#5FB7D9;
-    height: 355px;
-    width: 250px;
-    border-radius: 25px 0px;
-    font-family: 'Bitter', serif;
-    border: 1px  black solid;
-}
-.put{
-    padding: 40px;
-}
-ul{
-    padding:50px 0px 0px 47px;
-}
 
+th{
+	color:white;
+}
+body{
+    background-image: url(imag/2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+#container {
+    width: 350px;
+    height: 200px;
+    margin:-95px;
+    position: fixed;
+    bottom: 100px;
+    margin-left: 175px;
+    left: 25%;
+}
+#lo{
+       float: left;
+}
+#lili{
+      
+      text-decoration:none;
+        text-align: center;
+        height: 50px;   
+        width: 130px;
+        float: right;
+}
+.w3-button {
+	width:150px;
+	height:50px;
+	}
 input{
-    height: 30px;
-    width: 185px;
-    margin:11px 0px 15px 0px;
-    border-radius: 7px 0px;
+	height:40px;
+	width:150px;
 }
-h3{
-    text-align: center;
-    color:black;
-    margin-top: 40px;
+form{
+	font-size:20px;
 }
-h1{
-    text-align: center;
+.bobo{
+    height: 60px;
+    width: 100px;
+        
 }
 
-@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
-@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
 
-html, body {
-    background: #e5e5e5;
-    font-family: 'Lato', sans-serif;
-    margin: 0px auto;
-}
-::selection{
-  background: rgba(82,179,217,0.3);
-  color: inherit;
-}
 
 
 /* M E N U */
@@ -206,7 +193,6 @@ span.button{
     box-shadow: -1px 2px 0px #D4D4D4;
 }
 .other:before {
-    content: "";
     position: relative;
     top: 0px;
     right: 0px;
@@ -226,12 +212,14 @@ span.button{
     order: 1;
     border-bottom-right-radius: 0px;
     box-shadow: 1px 2px 0px #D4D4D4;
+    margin: 0.5em;
+    position: relative;
+    margin-right: 4em;
 }
 .self .avatar {
     order: 2;
 }
 .self .avatar:after {
-    content: "";
     position: relative;
     display: inline-block;
     bottom: 19px;
@@ -250,9 +238,11 @@ span.button{
     padding: 10px;
     border-radius: 2px;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.07);
-    margin: 1.5em;
-
+    margin: 0.5em;
+    position: relative;
+    margin-left: 3em;
 }
+
 .msg p {
     font-size: 0.8rem;
     margin: 0 0 0.2rem 0;
