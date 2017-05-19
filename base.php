@@ -8,10 +8,31 @@
     </head>
     <body>
     <!-- bordure du haut avec le nom des utilisateur connecté-->
+<input id="ouloulou"type="button" onclick="location.href='archivage.php';" value="Archivage" />
+
+    <style>#ouloulou{position: relative; margin-left: 26em;
+      background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  z-index: 999;
+      }</style>
+
     <div class="menu">
         <a href="?action=deco"><span class="button" title="deconnexion"><div class="back"><i class="fa fa-chevron-left"></i> <img src="https://api.adorable.io/avatars/40/<?= $_SESSION['mail']?>.png" draggable="false"/></div></a>
             <div class="name"><?= $_SESSION['username'] ?></div>
             <div class="last">18:09</div>
+
         </div>
     <!-- le contenue du tchat-->
     <ol class="chat">
