@@ -8,7 +8,7 @@
     </head>
     <body>
     <!-- bordure du haut avec le nom des utilisateur connecté-->
-<input id="ouloulou"type="button" onclick="location.href='archivage.php';" value="Archivage" />
+
 
     <style>#ouloulou{position: relative; margin-left: 26em;
       background: #3498db;
@@ -32,7 +32,7 @@
         <a href="?action=deco"><span class="button" title="deconnexion"><div class="back"><i class="fa fa-chevron-left"></i> <img src="https://api.adorable.io/avatars/40/<?= $_SESSION['mail']?>.png" draggable="false"/></div></a>
             <div class="name"><?= $_SESSION['username'] ?></div>
             <div class="last">18:09</div>
-
+  <input id="ouloulou"type="button" onclick="location.href='/archive';" value="Archivage" />
         </div>
     <!-- le contenue du tchat-->
     <ol class="chat">

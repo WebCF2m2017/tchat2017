@@ -19,10 +19,10 @@ if(!isset($_SESSION['nombre'])||$_SESSION['nombre']!=$nb){
     // on crée/update la variable de session
     $_SESSION['nombre']=$nb;
     // on dit à l'ajax de charger les derniers messages
-    echo "charge";
+    echo true;
 }else{
     // sinon on fait rien
-    echo "rien";
+    echo false;
 }
 
 
