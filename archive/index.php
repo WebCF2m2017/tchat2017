@@ -4,7 +4,7 @@
 require_once 'connect.php';
 require_once 'fonctions.php';
 
-
+$nb_par_page = 50;
 
 if(!isset($_GET['idarticle'])){
     // pour pagination
