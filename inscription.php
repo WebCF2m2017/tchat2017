@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 if(!strstr($_SERVER['PHP_SELF'],"index.php")){
     header("Location: ./");
@@ -13,14 +13,17 @@ if(isset($_POST['lelogin'])){
             $lemdp = trim($_POST['lepass_a']);
             $lemdp = sha256($lemdp);
             $lemail = filter_var(trim($_POST['lemail']), FILTER_VALIDATE_EMAIL);
+
             
-            if(!$lelogin||!$lemail|| $lemdp=='e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'){
-                
-                header("Location: http://how.icryeverytime.com");
-                exit();
-            }else{
-                
-                
+              
+                if(empty($lelogin)||empty($lemail)||empty($lemdp)){
+                  header("Location: http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                  exit();
+                }elseif(!$lelogin||!$lemail|| $lemdp=='e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'){
+                  header("Location: http://how.icryeverytime.com");
+                  exit();
+                }else{
+
                 // création de la clef
                 $clef = clef_u($lelogin);
                 
@@ -96,7 +99,7 @@ if(isset($_POST['lelogin'])){
             }
             .kappa{
               position: fixed;
-              padding-top: 20%;
+              bottom: 10%;
             }
             .hehe{
               background-color:#F8981D ;
@@ -128,7 +131,6 @@ if(isset($_POST['lelogin'])){
             ?>
         <div class="container">
          <div class="row">
-          <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
                <table class="table table borderless ">
              <tr><td>
                    <div class="btn-group btn-group-justified">
@@ -145,7 +147,7 @@ if(isset($_POST['lelogin'])){
             ?>
        <div class="container">
          <div class="row">
-         <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
+         <div class="col-md-4 col-md-offset-4  hehe">
           
           <table class="table table borderless ">
             <tr><td>
@@ -159,7 +161,7 @@ if(isset($_POST['lelogin'])){
       </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
+    <div class="col-md-4 col-md-offset-4  hehe">
  <table class="table table borderless ">
           <form action="" method="POST" name="inscription" class="form-inline">
             <div class="form-group hehe ">
@@ -203,7 +205,7 @@ if(isset($_POST['lelogin'])){
 <br/>
   <div class="container">
    <div class="row">
-    <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 hehe">
+    <div class="col-md-4 col-md-offset-4  hehe">
         <table class="table table borderless ">
           <div class="form-group hehe">
             <div class="checkbox">
