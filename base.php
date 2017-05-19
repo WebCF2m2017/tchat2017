@@ -12,6 +12,13 @@
         <a href="?action=deco"><span class="button" title="deconnexion"><div class="back"><i class="fa fa-chevron-left"></i> <img src="https://api.adorable.io/avatars/40/<?= $_SESSION['mail']?>.png" draggable="false"/></div></a>
             <div class="name"><?= $_SESSION['username'] ?></div>
             <div class="last">18:09</div>
+             <?php 
+         echo"<h3> Page $pg/". ceil($nb_tot/$_SESSION['nombre']) ." si".$_SESSION['nombre']." éléments par page </h3>";
+         echo $result;
+         echo $pagination;
+    
+     echo $pagination;
+        ?>
         </div>
     <!-- le contenue du tchat-->
     <ol class="chat">
