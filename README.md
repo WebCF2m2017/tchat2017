@@ -107,9 +107,6 @@ define("DB_PASS", "");
 define("DB_NAME", "sql8614_tchat");
 define("DB_CHARSET", "utf8");
 
-// variable de pagination
-
-$nb_par_page = 3;
 /*
  * temps en secondes de vérification de nouveaux message
  */
