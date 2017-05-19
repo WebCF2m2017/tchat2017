@@ -26,15 +26,11 @@ $recup_sql = mysqli_query($db, $sql)or die(mysqli_error($db));
 $pagination = maPagination($nb_tot, $pg,"pg",$nb_par_page);
 
 if(isset($_POST['toto'])){
-$lulu = htmlspecialchars($_POST['toto'],ENT_QUOTES);
-}
-$page=0;
-if ($page!=0) {
-        echo "page(s): ";
-        $iquery_count = mysqli_query($db, "SELECT * FROM message WHERE `texte` LIKE '$lulu' ");
-        $count = mysqli_nums_rows($iquery_count);
-        for ($i = 1; $i < $count/$np_page; $i++) {
-            echo '<a href="#'.$i.'">'.$i.'</a>&nbsp;';
+    $lulu = htmlspecialchars($_POST['toto'],ENT_QUOTES);
+        $iquery_count = mysqli_query($db, "SELECT * FROM message WHERE `texte` LIKE '%$lulu%' ");
+        $count = mysqli_num_rows($iquery_count);
+        if($count){
+            $resultat_search = mysqli_fetch_all($iquery_count, PDO::FETCH_ASSOC);
         }
     }
 ?>
@@ -178,6 +174,14 @@ a {
         </form>
     </div>
         <br /> <br /> <br />
+        <?php
+        if(isset($resultat_search)){
+            echo "Nombre de page(s): $count";
+            echo "<pre>";
+            var_dump($resultat_search);
+            echo "</pre>";
+        }
+        ?>
         <p align='center'><?=$pagination?></p>
         
         <div>
