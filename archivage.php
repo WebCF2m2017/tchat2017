@@ -10,7 +10,7 @@ mysqli_set_charset($db,DB_CHARSET);
 $sql= "SELECT m.texte,m.ladate , u.login , u.mail
 FROM message m
 inner JOIN util u
-ON m.util_idutil= U.idutil
+ON m.util_idutil= u.idutil
  ORDER BY m.ladate DESC;";
 
 $recup_all=mysqli_query($db,$sql);
